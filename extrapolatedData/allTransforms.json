@@ -1,0 +1,185 @@
+{
+    "Calming": [
+        "Sneaky",
+        "Bright-Eyed",
+        "Balding",
+        "Glowing",
+        "Anti-gravity",
+        "Slippery"
+    ],
+    "Euphoric": [
+        "Zombifying",
+        "Laxative",
+        "Energizing",
+        "Toxic",
+        "Spicy",
+        "Seizure-Inducing",
+        "Sedating",
+        "Bright-Eyed"
+    ],
+    "Focused": [
+        "Seizure-Inducing",
+        "Euphoric",
+        "Shrinking",
+        "Calming",
+        "Disorienting",
+        "Jennerising",
+        "Gingeritis"
+    ],
+    "Munchies": [
+        "Tropic Thunder",
+        "Toxic",
+        "Athletic",
+        "Calming",
+        "Slippery",
+        "Sedating",
+        "Schizophrenic",
+        "Anti-gravity"
+    ],
+    "Paranoia": [
+        "Jennerising",
+        "Calming",
+        "Anti-gravity",
+        "Balding"
+    ],
+    "Refreshing": [
+        "Thought-Provoking"
+    ],
+    "Smelly": [
+        "Anti-gravity"
+    ],
+    "Calorie-Dense": [
+        "Explosive",
+        "Gingeritis",
+        "Sneaky"
+    ],
+    "Disorienting": [
+        "Focused",
+        "Electrifying",
+        "Glowing",
+        "Toxic"
+    ],
+    "Energizing": [
+        "Thought-Provoking",
+        "Euphoric",
+        "Cyclopean",
+        "Munchies",
+        "Paranoia"
+    ],
+    "Gingeritis": [
+        "Thought-Provoking",
+        "Smelly",
+        "Refreshing"
+    ],
+    "Sedating": [
+        "Gingeritis",
+        "Munchies"
+    ],
+    "Sneaky": [
+        "Bright-Eyed",
+        "Paranoia",
+        "Tropic Thunder",
+        "Calming"
+    ],
+    "Toxic": [
+        "Smelly",
+        "Euphoric",
+        "Sneaky",
+        "Tropic Thunder"
+    ],
+    "Athletic": [
+        "Euphoric",
+        "Munchies",
+        "Laxative",
+        "Sneaky"
+    ],
+    "Balding": [
+        "Sneaky"
+    ],
+    "Foggy": [
+        "Energizing",
+        "Cyclopean",
+        "Laxative",
+        "Paranoia",
+        "Toxic",
+        "Calming"
+    ],
+    "Laxative": [
+        "Calorie-Dense",
+        "Long faced",
+        "Euphoric",
+        "Foggy",
+        "Calming"
+    ],
+    "Seizure-Inducing": [
+        "Energizing",
+        "Focused"
+    ],
+    "Slippery": [
+        "Munchies",
+        "Toxic"
+    ],
+    "Spicy": [
+        "Euphoric",
+        "Bright-Eyed"
+    ],
+    "Glowing": [
+        "Refreshing",
+        "Disorienting",
+        "Toxic"
+    ],
+    "Jennerising": [
+        "Gingeritis",
+        "Sneaky",
+        "Paranoia"
+    ],
+    "Lethal": [
+        "Laxative",
+        "Focused",
+        "Munchies"
+    ],
+    "Schizophrenic": [
+        "Balding"
+    ],
+    "Thought-Provoking": [
+        "Gingeritis",
+        "Electrifying",
+        "Energizing"
+    ],
+    "Tropic Thunder": [
+        "Sneaky"
+    ],
+    "Anti-gravity": [
+        "Tropic Thunder",
+        "Slippery",
+        "Calming"
+    ],
+    "Cyclopean": [
+        "Energizing",
+        "Glowing",
+        "Foggy"
+    ],
+    "Electrifying": [
+        "Euphoric",
+        "Refreshing",
+        "Disorienting",
+        "Athletic"
+    ],
+    "Explosive": [
+        "Euphoric",
+        "Sedating"
+    ],
+    "Long faced": [
+        "Electrifying",
+        "Refreshing"
+    ],
+    "Shrinking": [
+        "Munchies",
+        "Refreshing",
+        "Energizing",
+        "Paranoia",
+        "Focused",
+        "Electrifying",
+        "Gingeritis"
+    ]
+}

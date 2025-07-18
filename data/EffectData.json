@@ -1,0 +1,1157 @@
+[
+    {
+        "name": "Calming",
+        "Name": "Calming",
+        "ID": "calming",
+        "addBaseValueMultiplier": 0.1,
+        "addictiveness": 0.0,
+        "mixDir": [
+            0.9998115,
+            0.0194138158
+        ],
+        "mixMagnitude": 1.03019416,
+        "tier": 1,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            1.03,
+            0.02
+        ],
+        "labelColor": [
+            1.0,
+            0.819607854,
+            0.607843161,
+            1.0
+        ],
+        "productColor": [
+            1.0,
+            0.817926645,
+            0.6084906,
+            1.0
+        ],
+        "description": "Induces a slight calmness in the user.",
+        "radius": 0.4
+    },
+    {
+        "name": "Euphoric",
+        "Name": "Euphoric",
+        "ID": "Euphoric",
+        "addBaseValueMultiplier": 0.18,
+        "addictiveness": 0.235,
+        "mixDir": [
+            0.0,
+            1.0
+        ],
+        "mixMagnitude": 1.07,
+        "tier": 1,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            0.0,
+            1.07
+        ],
+        "labelColor": [
+            1.0,
+            0.921568632,
+            0.458823532,
+            1.0
+        ],
+        "productColor": [
+            1.0,
+            0.922956944,
+            0.4575472,
+            1.0
+        ],
+        "description": "Induces mild euphoric in the user.",
+        "radius": 0.4
+    },
+    {
+        "name": "Focused",
+        "Name": "Focused",
+        "ID": "Focused",
+        "addBaseValueMultiplier": 0.16,
+        "addictiveness": 0.104,
+        "mixDir": [
+            -0.9988463,
+            0.0480214581
+        ],
+        "mixMagnitude": 1.04120123,
+        "tier": 1,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            -1.04,
+            0.05
+        ],
+        "labelColor": [
+            0.458823532,
+            0.9490196,
+            1.0,
+            1.0
+        ],
+        "productColor": [
+            0.458823562,
+            0.9502235,
+            1.0,
+            1.0
+        ],
+        "description": "Focuses the user's mind.",
+        "radius": 0.4
+    },
+    {
+        "name": "Munchies",
+        "Name": "Munchies",
+        "ID": "munchies",
+        "addBaseValueMultiplier": 0.12,
+        "addictiveness": 0.096,
+        "mixDir": [
+            0.0291138683,
+            -0.9995761
+        ],
+        "mixMagnitude": 1.03043675,
+        "tier": 1,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            0.03,
+            -1.03
+        ],
+        "labelColor": [
+            0.7921569,
+            0.427450985,
+            0.34117648,
+            1.0
+        ],
+        "productColor": [
+            0.7924528,
+            0.428586423,
+            0.340156645,
+            1.0
+        ],
+        "description": "Makes the user hungry.",
+        "radius": 0.4
+    },
+    {
+        "name": "Paranoia",
+        "Name": "Paranoia",
+        "ID": "paranoia",
+        "addBaseValueMultiplier": 0.0,
+        "addictiveness": 0.0,
+        "mixDir": [
+            -0.738209844,
+            -0.6745711
+        ],
+        "mixMagnitude": 1.57136881,
+        "tier": 1,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            -1.16,
+            -1.06
+        ],
+        "labelColor": [
+            0.772549033,
+            0.403309166,
+            0.384313732,
+            1.0
+        ],
+        "productColor": [
+            0.7735849,
+            0.383143455,
+            0.5049371,
+            1.0
+        ],
+        "description": "Induces paranoia in the user.",
+        "radius": 0.4
+    },
+    {
+        "name": "Refreshing",
+        "Name": "Refreshing",
+        "ID": "refreshing",
+        "addBaseValueMultiplier": 0.14,
+        "addictiveness": 0.104,
+        "mixDir": [
+            -0.7039849,
+            0.7102149
+        ],
+        "mixMagnitude": 1.605148,
+        "tier": 1,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            -1.13,
+            1.14
+        ],
+        "labelColor": [
+            0.698039234,
+            1.0,
+            0.6,
+            1.0
+        ],
+        "productColor": [
+            0.698173344,
+            1.0,
+            0.5990566,
+            1.0
+        ],
+        "description": "Slightly energizes the user.",
+        "radius": 0.4
+    },
+    {
+        "name": "Smelly",
+        "Name": "Smelly",
+        "ID": "smelly",
+        "addBaseValueMultiplier": 0.0,
+        "addictiveness": 0.0,
+        "mixDir": [
+            0.750010133,
+            -0.6614263
+        ],
+        "mixMagnitude": 1.69331038,
+        "tier": 1,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            1.27,
+            -1.12
+        ],
+        "labelColor": [
+            0.4862745,
+            0.7372549,
+            0.192156866,
+            1.0
+        ],
+        "productColor": [
+            0.4863197,
+            0.735849,
+            0.190904245,
+            1.0
+        ],
+        "description": "Makes the user unbearably smelly.",
+        "radius": 0.4
+    },
+    {
+        "name": "CalorieDense",
+        "Name": "Calorie-Dense",
+        "ID": "caloriedense",
+        "addBaseValueMultiplier": 0.28,
+        "addictiveness": 0.1,
+        "mixDir": [
+            0.694482863,
+            0.719509244
+        ],
+        "mixMagnitude": 1.59831154,
+        "tier": 2,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            1.11,
+            1.15
+        ],
+        "labelColor": [
+            1.0,
+            0.5137255,
+            0.9647059,
+            1.0
+        ],
+        "productColor": [
+            1.0,
+            0.514151,
+            0.9657896,
+            1.0
+        ],
+        "description": "Results in immediate weight gain.",
+        "radius": 0.4
+    },
+    {
+        "name": "Disorienting",
+        "Name": "Disorienting",
+        "ID": "disorienting",
+        "addBaseValueMultiplier": 0.0,
+        "addictiveness": 0.0,
+        "mixDir": [
+            -0.275337428,
+            0.9613477
+        ],
+        "mixMagnitude": 2.14282513,
+        "tier": 2,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            -0.59,
+            2.06
+        ],
+        "labelColor": [
+            1.0,
+            0.458823532,
+            0.31764707,
+            1.0
+        ],
+        "productColor": [
+            1.0,
+            0.460336834,
+            0.3160377,
+            1.0
+        ],
+        "description": "Causes unpredictable movement and slight visual impairment in the user.",
+        "radius": 0.4
+    },
+    {
+        "name": "Energizing",
+        "Name": "Energizing",
+        "ID": "energizing",
+        "addBaseValueMultiplier": 0.22,
+        "addictiveness": 0.34,
+        "mixDir": [
+            -0.9663099,
+            0.2573816
+        ],
+        "mixMagnitude": 2.21461058,
+        "tier": 2,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            -2.14,
+            0.57
+        ],
+        "labelColor": [
+            0.6039216,
+            1.0,
+            0.427450985,
+            1.0
+        ],
+        "productColor": [
+            0.604280531,
+            1.0,
+            0.4292453,
+            1.0
+        ],
+        "description": "Increases the users energy.",
+        "radius": 0.4
+    },
+    {
+        "name": "Gingeritis",
+        "Name": "Gingeritis",
+        "ID": "gingeritis",
+        "addBaseValueMultiplier": 0.2,
+        "addictiveness": 0.0,
+        "mixDir": [
+            -0.283827156,
+            -0.9588755
+        ],
+        "mixMagnitude": 2.08577657,
+        "tier": 2,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            -0.592,
+            -2.0
+        ],
+        "labelColor": [
+            1.0,
+            0.533333361,
+            0.164705887,
+            1.0
+        ],
+        "productColor": [
+            1.0,
+            0.5330237,
+            0.165094316,
+            1.0
+        ],
+        "description": "After consumption, the user will become a ginger.",
+        "radius": 0.4
+    },
+    {
+        "name": "Sedating",
+        "Name": "Sedating",
+        "ID": "sedating",
+        "addBaseValueMultiplier": 0.26,
+        "addictiveness": 0.0,
+        "mixDir": [
+            0.9823386,
+            -0.187112123
+        ],
+        "mixMagnitude": 2.13775563,
+        "tier": 2,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            2.1,
+            -0.4
+        ],
+        "labelColor": [
+            0.4180947,
+            0.3724635,
+            0.8490566,
+            1.0
+        ],
+        "productColor": [
+            0.269908458,
+            0.236383051,
+            0.6037736,
+            1.0
+        ],
+        "description": "Induces heavy sleepiness in the user.",
+        "radius": 0.4
+    },
+    {
+        "name": "Sneaky",
+        "Name": "Sneaky",
+        "ID": "sneaky",
+        "addBaseValueMultiplier": 0.24,
+        "addictiveness": 0.327,
+        "mixDir": [
+            0.3640428,
+            -0.931382239
+        ],
+        "mixMagnitude": 2.115136,
+        "tier": 2,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            0.77,
+            -1.97
+        ],
+        "labelColor": [
+            0.482352942,
+            0.482352942,
+            0.482352942,
+            1.0
+        ],
+        "productColor": [
+            0.4811321,
+            0.4811321,
+            0.4811321,
+            1.0
+        ],
+        "description": "Silences the users foot steps.",
+        "radius": 0.4
+    },
+    {
+        "name": "Toxic",
+        "Name": "Toxic",
+        "ID": "toxic",
+        "addBaseValueMultiplier": 0.0,
+        "addictiveness": 0.0,
+        "mixDir": [
+            0.9545568,
+            0.298029035
+        ],
+        "mixMagnitude": 2.31521058,
+        "tier": 2,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            2.21,
+            0.69
+        ],
+        "labelColor": [
+            0.372549027,
+            0.6039216,
+            0.192156866,
+            1.0
+        ],
+        "productColor": [
+            0.3723976,
+            0.6037736,
+            0.190815225,
+            1.0
+        ],
+        "description": "Damages the user's liver and induces vomiting.",
+        "radius": 0.4
+    },
+    {
+        "name": "Athletic",
+        "Name": "Athletic",
+        "ID": "athletic",
+        "addBaseValueMultiplier": 0.32,
+        "addictiveness": 0.607,
+        "mixDir": [
+            -0.9678014,
+            -0.251715153
+        ],
+        "mixMagnitude": 2.30419183,
+        "tier": 3,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            -2.23,
+            -0.58
+        ],
+        "labelColor": [
+            0.458823532,
+            0.7882353,
+            1.0,
+            1.0
+        ],
+        "productColor": [
+            0.4575472,
+            0.7877686,
+            1.0,
+            1.0
+        ],
+        "description": "After consumption, the user is only able to run.",
+        "radius": 0.4
+    },
+    {
+        "name": "Balding",
+        "Name": "Balding",
+        "ID": "balding",
+        "addBaseValueMultiplier": 0.3,
+        "addictiveness": 0.0,
+        "mixDir": [
+            -0.0467715,
+            -0.9989056
+        ],
+        "mixMagnitude": 2.993276,
+        "tier": 3,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            -0.14,
+            -2.99
+        ],
+        "labelColor": [
+            0.784313738,
+            0.572549045,
+            0.196078435,
+            1.0
+        ],
+        "productColor": [
+            0.7830189,
+            0.570644557,
+            0.195754722,
+            1.0
+        ],
+        "description": "Causes balding in the user.",
+        "radius": 0.4
+    },
+    {
+        "name": "Foggy",
+        "Name": "Foggy",
+        "ID": "foggy",
+        "addBaseValueMultiplier": 0.36,
+        "addictiveness": 0.1,
+        "mixDir": [
+            0.2238975,
+            0.974612653
+        ],
+        "mixMagnitude": 2.277828,
+        "tier": 3,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            0.51,
+            2.22
+        ],
+        "labelColor": [
+            0.6901961,
+            0.6901961,
+            0.6901961,
+            1.0
+        ],
+        "productColor": [
+            0.6886792,
+            0.6886792,
+            0.6886792,
+            1.0
+        ],
+        "description": "Causes a cloud of fog to form around the user.",
+        "radius": 0.4
+    },
+    {
+        "name": "Laxative",
+        "Name": "Laxative",
+        "ID": "laxative",
+        "addBaseValueMultiplier": 0.0,
+        "addictiveness": 0.1,
+        "mixDir": [
+            -0.804176152,
+            0.594391048
+        ],
+        "mixMagnitude": 2.57406282,
+        "tier": 3,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            -2.07,
+            1.53
+        ],
+        "labelColor": [
+            0.4627451,
+            0.235294119,
+            0.145098045,
+            1.0
+        ],
+        "productColor": [
+            0.46226418,
+            0.233676374,
+            0.146092921,
+            1.0
+        ],
+        "description": "Causes the user to fart and shit uncontrollably.",
+        "radius": 0.4
+    },
+    {
+        "name": "Seizure",
+        "Name": "Seizure-Inducing",
+        "ID": "seizure",
+        "addBaseValueMultiplier": 0.0,
+        "addictiveness": 0.0,
+        "mixDir": [
+            -0.6242391,
+            -0.7812333
+        ],
+        "mixMagnitude": 2.675257,
+        "tier": 3,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            -1.67,
+            -2.09
+        ],
+        "labelColor": [
+            1.0,
+            0.917647064,
+            0.0,
+            1.0
+        ],
+        "productColor": [
+            1.0,
+            0.9176221,
+            0.0,
+            1.0
+        ],
+        "description": "Consumption results in an instant seizure.",
+        "radius": 0.4
+    },
+    {
+        "name": "Slippery",
+        "Name": "Slippery",
+        "ID": "slippery",
+        "addBaseValueMultiplier": 0.34,
+        "addictiveness": 0.309,
+        "mixDir": [
+            0.775648534,
+            -0.631164968
+        ],
+        "mixMagnitude": 2.630057,
+        "tier": 3,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            2.04,
+            -1.66
+        ],
+        "labelColor": [
+            0.635294139,
+            0.8745098,
+            1.0,
+            1.0
+        ],
+        "productColor": [
+            0.6367924,
+            0.874968231,
+            1.0,
+            1.0
+        ],
+        "description": "Reduces the user's ability to maintain traction on the ground.",
+        "radius": 0.4
+    },
+    {
+        "name": "Spicy",
+        "Name": "Spicy",
+        "ID": "spicy",
+        "addBaseValueMultiplier": 0.38,
+        "addictiveness": 0.665,
+        "mixDir": [
+            0.750938058,
+            0.6603726
+        ],
+        "mixMagnitude": 2.650019,
+        "tier": 3,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            1.99,
+            1.75
+        ],
+        "labelColor": [
+            1.0,
+            0.419607848,
+            0.298039228,
+            1.0
+        ],
+        "productColor": [
+            1.0,
+            0.419019848,
+            0.2971698,
+            1.0
+        ],
+        "description": "Consumption results in the user's eyes turning blue.",
+        "radius": 0.4
+    },
+    {
+        "name": "BrightEyed",
+        "Name": "Bright-Eyed",
+        "ID": "brighteyed",
+        "addBaseValueMultiplier": 0.4,
+        "addictiveness": 0.2,
+        "mixDir": [
+            0.9999129,
+            -0.01320017
+        ],
+        "mixMagnitude": 3.030264,
+        "tier": 4,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            3.03,
+            -0.04
+        ],
+        "labelColor": [
+            0.7490196,
+            0.972549,
+            1.0,
+            1.0
+        ],
+        "productColor": [
+            0.75,
+            0.9710584,
+            1.0,
+            1.0
+        ],
+        "description": "Causes the user's eyes to emit light.",
+        "radius": 0.4
+    },
+    {
+        "name": "Glowie",
+        "Name": "Glowing",
+        "ID": "glowie",
+        "addBaseValueMultiplier": 0.48,
+        "addictiveness": 0.472,
+        "mixDir": [
+            0.475517064,
+            0.8797065
+        ],
+        "mixMagnitude": 2.94416356,
+        "tier": 4,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            1.4,
+            2.59
+        ],
+        "labelColor": [
+            0.521568656,
+            0.8980392,
+            0.349019617,
+            1.0
+        ],
+        "productColor": [
+            0.521295249,
+            0.8962264,
+            0.35088107,
+            1.0
+        ],
+        "description": "Imbues a bioluminescence on the user.",
+        "radius": 0.4
+    },
+    {
+        "name": "Jennerising",
+        "Name": "Jennerising",
+        "ID": "jennerising",
+        "addBaseValueMultiplier": 0.42,
+        "addictiveness": 0.343,
+        "mixDir": [
+            -0.4293588,
+            -0.903134048
+        ],
+        "mixMagnitude": 3.37712884,
+        "tier": 4,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            -1.45,
+            -3.05
+        ],
+        "labelColor": [
+            1.0,
+            0.5529412,
+            0.980392158,
+            1.0
+        ],
+        "productColor": [
+            1.0,
+            0.5518868,
+            0.9801819,
+            1.0
+        ],
+        "description": "Inverts the user's gender.",
+        "radius": 0.4
+    },
+    {
+        "name": "Lethal",
+        "Name": "Lethal",
+        "ID": "lethal",
+        "addBaseValueMultiplier": 0.0,
+        "addictiveness": 0.0,
+        "mixDir": [
+            -0.9998243,
+            0.0187467039
+        ],
+        "mixMagnitude": 3.20056248,
+        "tier": 4,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            -3.2,
+            0.06
+        ],
+        "labelColor": [
+            0.623529434,
+            0.168627456,
+            0.137254909,
+            1.0
+        ],
+        "productColor": [
+            0.6226415,
+            0.170541063,
+            0.138038442,
+            1.0
+        ],
+        "description": "Causes total organ failure shortly after consumption.",
+        "radius": 0.4
+    },
+    {
+        "name": "Schizophrenic",
+        "Name": "Schizophrenic",
+        "ID": "schizophrenic",
+        "addBaseValueMultiplier": 0.0,
+        "addictiveness": 0.0,
+        "mixDir": [
+            0.64213,
+            -0.7665958
+        ],
+        "mixMagnitude": 3.53510952,
+        "tier": 4,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            2.27,
+            -2.71
+        ],
+        "labelColor": [
+            0.392156869,
+            0.3529412,
+            1.0,
+            1.0
+        ],
+        "productColor": [
+            0.390769452,
+            0.3537736,
+            1.0,
+            1.0
+        ],
+        "description": "Induces hallucinations and unpredictable behaviour in the user.",
+        "radius": 0.4
+    },
+    {
+        "name": "ThoughtProvoking",
+        "Name": "Thought-Provoking",
+        "ID": "thoughtprovoking",
+        "addBaseValueMultiplier": 0.44,
+        "addictiveness": 0.37,
+        "mixDir": [
+            -0.862103343,
+            -0.5067325
+        ],
+        "mixMagnitude": 3.03907871,
+        "tier": 4,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            -2.62,
+            -1.54
+        ],
+        "labelColor": [
+            1.0,
+            0.627451,
+            0.796078444,
+            1.0
+        ],
+        "productColor": [
+            1.0,
+            0.6273585,
+            0.7948635,
+            1.0
+        ],
+        "description": "Increases the size of the user's head.",
+        "radius": 0.4
+    },
+    {
+        "name": "TropicThunder",
+        "Name": "Tropic Thunder",
+        "ID": "tropicthunder",
+        "addBaseValueMultiplier": 0.46,
+        "addictiveness": 0.803,
+        "mixDir": [
+            0.9358154,
+            -0.352490455
+        ],
+        "mixMagnitude": 3.20576048,
+        "tier": 4,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            3.0,
+            -1.13
+        ],
+        "labelColor": [
+            1.0,
+            0.623529434,
+            0.2784314,
+            1.0
+        ],
+        "productColor": [
+            1.0,
+            0.621865451,
+            0.2783019,
+            1.0
+        ],
+        "description": "Inverts the user's skin color.",
+        "radius": 0.4
+    },
+    {
+        "name": "AntiGravity",
+        "Name": "Anti-gravity",
+        "ID": "antigravity",
+        "addBaseValueMultiplier": 0.54,
+        "addictiveness": 0.611,
+        "mixDir": [
+            0.3085047,
+            -0.951222837
+        ],
+        "mixMagnitude": 3.111784,
+        "tier": 5,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            0.96,
+            -2.96
+        ],
+        "labelColor": [
+            0.141176477,
+            0.356862754,
+            0.8,
+            1.0
+        ],
+        "productColor": [
+            0.139951944,
+            0.3578153,
+            0.8018868,
+            1.0
+        ],
+        "description": "Weakens the effects of gravity on the user.",
+        "radius": 0.4
+    },
+    {
+        "name": "Cyclopean",
+        "Name": "Cyclopean",
+        "ID": "cyclopean",
+        "addBaseValueMultiplier": 0.56,
+        "addictiveness": 0.1,
+        "mixDir": [
+            -0.5215897,
+            0.853196442
+        ],
+        "mixMagnitude": 2.89499569,
+        "tier": 5,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            -1.51,
+            2.47
+        ],
+        "labelColor": [
+            1.0,
+            0.75686276,
+            0.458823532,
+            1.0
+        ],
+        "productColor": [
+            1.0,
+            0.7553994,
+            0.4575472,
+            1.0
+        ],
+        "description": "",
+        "radius": 0.4
+    },
+    {
+        "name": "Electrifying",
+        "Name": "Electrifying",
+        "ID": "electrifying",
+        "addBaseValueMultiplier": 0.5,
+        "addictiveness": 0.235,
+        "mixDir": [
+            -0.918833137,
+            0.394646347
+        ],
+        "mixMagnitude": 3.31942749,
+        "tier": 5,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            -3.05,
+            1.31
+        ],
+        "labelColor": [
+            0.333333343,
+            0.7882353,
+            1.0,
+            1.0
+        ],
+        "productColor": [
+            0.334905684,
+            0.788692951,
+            1.0,
+            1.0
+        ],
+        "description": "Electrifies the user, causing arcs of electricity to be emitted, zapping anyone nearby.",
+        "radius": 0.4
+    },
+    {
+        "name": "Explosive",
+        "Name": "Explosive",
+        "ID": "explosive",
+        "addBaseValueMultiplier": 0.0,
+        "addictiveness": 0.0,
+        "mixDir": [
+            0.6752106,
+            0.737625
+        ],
+        "mixMagnitude": 3.52482629,
+        "tier": 5,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            2.38,
+            2.6
+        ],
+        "labelColor": [
+            1.0,
+            0.294117659,
+            0.2509804,
+            1.0
+        ],
+        "productColor": [
+            1.0,
+            0.2940593,
+            0.250980377,
+            1.0
+        ],
+        "description": "Causes the user to explode shortly after consumption.",
+        "radius": 0.4
+    },
+    {
+        "name": "LongFaced",
+        "Name": "Long faced",
+        "ID": "giraffying",
+        "addBaseValueMultiplier": 0.52,
+        "addictiveness": 0.607,
+        "mixDir": [
+            -0.0681009144,
+            0.9976784
+        ],
+        "mixMagnitude": 2.93681812,
+        "tier": 5,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            -0.2,
+            2.93
+        ],
+        "labelColor": [
+            1.0,
+            0.854901969,
+            0.380392164,
+            1.0
+        ],
+        "productColor": [
+            1.0,
+            0.8553854,
+            0.3820755,
+            1.0
+        ],
+        "description": "Considerably increases the size of the user's head and neck.",
+        "radius": 0.4
+    },
+    {
+        "name": "Shrinking",
+        "Name": "Shrinking",
+        "ID": "shrinking",
+        "addBaseValueMultiplier": 0.6,
+        "addictiveness": 0.336,
+        "mixDir": [
+            -0.9646955,
+            -0.263367772
+        ],
+        "mixMagnitude": 3.37930465,
+        "tier": 5,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            -3.26,
+            -0.89
+        ],
+        "labelColor": [
+            0.7137255,
+            1.0,
+            0.858823538,
+            1.0
+        ],
+        "productColor": [
+            0.7122642,
+            1.0,
+            0.85871464,
+            1.0
+        ],
+        "description": "Shrinks the user.",
+        "radius": 0.4
+    },
+    {
+        "name": "Zombifying",
+        "Name": "Zombifying",
+        "ID": "zombifying",
+        "addBaseValueMultiplier": 0.58,
+        "addictiveness": 0.598,
+        "mixDir": [
+            0.9299857,
+            0.367595673
+        ],
+        "mixMagnitude": 3.18284464,
+        "tier": 5,
+        "valueChange": 0,
+        "valueMultiplier": 1.0,
+        "pos": [
+            2.96,
+            1.17
+        ],
+        "labelColor": [
+            0.443137258,
+            0.670588255,
+            0.3647059,
+            1.0
+        ],
+        "productColor": [
+            0.441342622,
+            0.6698113,
+            0.363341033,
+            1.0
+        ],
+        "description": "",
+        "radius": 0.4
+    }
+]

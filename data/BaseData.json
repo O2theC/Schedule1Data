@@ -1,0 +1,88 @@
+[
+    {
+        "Name": "OG Kush",
+        "name": "OG Kush",
+        "ID": "ogkush",
+        "effects": [
+            "Calming"
+        ],
+        "drugType": "Marijuana",
+        "price": 38.0,
+        "description": "Old school OG Kush. Offers a balanced, relaxing high with subtle physical effects.",
+        "legalStatus": "LowSeverityDrug",
+        "inDemo": true,
+        "baseAddictiveness": 0.0,
+        "basePrice": 35.0
+    },
+    {
+        "Name": "Sour Diesel",
+        "name": "Sour Diesel",
+        "ID": "sourdiesel",
+        "effects": [
+            "Refreshing"
+        ],
+        "drugType": "Marijuana",
+        "price": 40.0,
+        "description": "An uplifting yet easy-going strain with mild cerebral effects.",
+        "legalStatus": "LowSeverityDrug",
+        "inDemo": true,
+        "baseAddictiveness": 0.0,
+        "basePrice": 35.0
+    },
+    {
+        "Name": "Green Crack",
+        "name": "Green Crack",
+        "ID": "greencrack",
+        "effects": [
+            "Energizing"
+        ],
+        "drugType": "Marijuana",
+        "price": 49.0,
+        "description": "A potent, highly energizing strain that leaves you with a focussed buzz.",
+        "legalStatus": "LowSeverityDrug",
+        "inDemo": true,
+        "baseAddictiveness": 0.0,
+        "basePrice": 35.0
+    },
+    {
+        "Name": "Granddaddy Purple",
+        "name": "Granddaddy Purple",
+        "ID": "granddaddypurple",
+        "effects": [
+            "Sedating"
+        ],
+        "drugType": "Marijuana",
+        "price": 44.0,
+        "description": "A potent classic with intense sedating and euphoric effects.",
+        "legalStatus": "LowSeverityDrug",
+        "inDemo": true,
+        "baseAddictiveness": 0.0,
+        "basePrice": 35.0
+    },
+    {
+        "Name": "Meth",
+        "name": "Meth",
+        "ID": "meth",
+        "effects": [],
+        "drugType": "Methamphetamine",
+        "price": 70.0,
+        "description": "Classic methamphetamine. A powerful stimulant with intense physical and mentral addictiveness.",
+        "legalStatus": "HighSeverityDrug",
+        "inDemo": false,
+        "baseAddictiveness": 0.6,
+        "basePrice": 70.0
+    },
+    {
+        "Name": "Cocaine",
+        "name": "Cocaine",
+        "ID": "cocaine",
+        "effects": [],
+        "drugType": "Cocaine",
+        "price": 150.0,
+        "description": "Powerful stimulant commonly snorted for a euphoric but short-lived high.",
+        "legalStatus": "ModerateSeverityDrug",
+        "inDemo": false,
+        "baseAddictiveness": 0.4,
+        "basePrice": 150.0
+    }
+]

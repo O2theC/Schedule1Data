@@ -1,0 +1,151 @@
+{
+    "Banana": {
+        "Calming": "Sneaky",
+        "Focused": "Seizure-Inducing",
+        "Paranoia": "Jennerising",
+        "Smelly": "Anti-gravity",
+        "Disorienting": "Focused",
+        "Energizing": "Thought-Provoking",
+        "Toxic": "Smelly",
+        "Cyclopean": "Energizing",
+        "Long faced": "Refreshing"
+    },
+    "Flu Medicine": {
+        "Calming": "Bright-Eyed",
+        "Euphoric": "Toxic",
+        "Focused": "Calming",
+        "Munchies": "Slippery",
+        "Athletic": "Munchies",
+        "Laxative": "Euphoric",
+        "Lethal": "Focused",
+        "Thought-Provoking": "Gingeritis",
+        "Cyclopean": "Foggy",
+        "Electrifying": "Refreshing",
+        "Shrinking": "Paranoia"
+    },
+    "Iodine": {
+        "Calming": "Balding",
+        "Euphoric": "Seizure-Inducing",
+        "Refreshing": "Thought-Provoking",
+        "Calorie-Dense": "Gingeritis",
+        "Toxic": "Sneaky",
+        "Foggy": "Paranoia"
+    },
+    "Mega Bean": {
+        "Calming": "Glowing",
+        "Focused": "Disorienting",
+        "Energizing": "Cyclopean",
+        "Sneaky": "Calming",
+        "Athletic": "Laxative",
+        "Seizure-Inducing": "Focused",
+        "Slippery": "Toxic",
+        "Jennerising": "Paranoia",
+        "Thought-Provoking": "Energizing",
+        "Shrinking": "Electrifying"
+    },
+    "Mouth Wash": {
+        "Calming": "Anti-gravity",
+        "Focused": "Jennerising",
+        "Calorie-Dense": "Sneaky",
+        "Explosive": "Sedating"
+    },
+    "Paracetamol": {
+        "Calming": "Slippery",
+        "Focused": "Gingeritis",
+        "Munchies": "Anti-gravity",
+        "Paranoia": "Balding",
+        "Energizing": "Paranoia",
+        "Toxic": "Tropic Thunder",
+        "Foggy": "Calming",
+        "Spicy": "Bright-Eyed",
+        "Glowing": "Toxic",
+        "Electrifying": "Athletic"
+    },
+    "Battery": {
+        "Euphoric": "Zombifying",
+        "Munchies": "Tropic Thunder",
+        "Laxative": "Calorie-Dense",
+        "Cyclopean": "Glowing",
+        "Electrifying": "Euphoric",
+        "Shrinking": "Munchies"
+    },
+    "Cuke": {
+        "Euphoric": "Laxative",
+        "Munchies": "Athletic",
+        "Gingeritis": "Thought-Provoking",
+        "Sneaky": "Paranoia",
+        "Toxic": "Euphoric",
+        "Foggy": "Cyclopean",
+        "Slippery": "Munchies"
+    },
+    "Energy Drink": {
+        "Euphoric": "Energizing",
+        "Focused": "Shrinking",
+        "Disorienting": "Electrifying",
+        "Sedating": "Munchies",
+        "Foggy": "Laxative",
+        "Spicy": "Euphoric",
+        "Glowing": "Disorienting",
+        "Schizophrenic": "Balding",
+        "Tropic Thunder": "Sneaky"
+    },
+    "Gasoline": {
+        "Euphoric": "Spicy",
+        "Munchies": "Sedating",
+        "Paranoia": "Calming",
+        "Disorienting": "Glowing",
+        "Energizing": "Euphoric",
+        "Gingeritis": "Smelly",
+        "Sneaky": "Tropic Thunder",
+        "Laxative": "Foggy",
+        "Jennerising": "Sneaky",
+        "Electrifying": "Disorienting",
+        "Shrinking": "Focused"
+    },
+    "Motor Oil": {
+        "Euphoric": "Sedating",
+        "Munchies": "Schizophrenic",
+        "Paranoia": "Anti-gravity",
+        "Energizing": "Munchies",
+        "Foggy": "Toxic"
+    },
+    "Viagor": {
+        "Euphoric": "Bright-Eyed",
+        "Disorienting": "Toxic",
+        "Athletic": "Sneaky",
+        "Laxative": "Calming",
+        "Lethal": "Munchies",
+        "Shrinking": "Gingeritis"
+    },
+    "Donut": {
+        "Focused": "Euphoric",
+        "Munchies": "Calming",
+        "Calorie-Dense": "Explosive",
+        "Balding": "Sneaky",
+        "Jennerising": "Gingeritis",
+        "Lethal": "Laxative",
+        "Anti-gravity": "Slippery",
+        "Shrinking": "Energizing"
+    },
+    "Chili": {
+        "Munchies": "Toxic",
+        "Sneaky": "Bright-Eyed",
+        "Athletic": "Euphoric",
+        "Laxative": "Long faced",
+        "Anti-gravity": "Tropic Thunder",
+        "Shrinking": "Refreshing"
+    },
+    "Horse Semen": {
+        "Gingeritis": "Refreshing",
+        "Seizure-Inducing": "Energizing",
+        "Thought-Provoking": "Electrifying",
+        "Anti-gravity": "Calming"
+    },
+    "Addy": {
+        "Sedating": "Gingeritis",
+        "Foggy": "Energizing",
+        "Glowing": "Refreshing",
+        "Explosive": "Euphoric",
+        "Long faced": "Electrifying"
+    }
+}

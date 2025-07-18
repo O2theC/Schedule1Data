@@ -1,0 +1,338 @@
+[
+  {
+    "name": "Addy",
+    "Name": "Addy",
+    "ID": "addy",
+    "effects": [
+      "Thought-Provoking"
+    ],
+    "price": 9.0,
+    "rank": 2,
+    "resellMul": 0.5,
+    "description": "Like meth except legal. Used to stimulate cognition.",
+    "labelColor": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "legalStatus": 0,
+    "inDemo": true,
+    "stackSize": 20
+  },
+  {
+    "name": "Banana",
+    "Name": "Banana",
+    "ID": "banana",
+    "effects": [
+      "Gingeritis"
+    ],
+    "price": 2.0,
+    "rank": 5,
+    "resellMul": 0.5,
+    "description": "Elongated yellow fruit, rich in potassium.",
+    "labelColor": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "legalStatus": 0,
+    "inDemo": true,
+    "stackSize": 20
+  },
+  {
+    "name": "Battery",
+    "Name": "Battery",
+    "ID": "battery",
+    "effects": [
+      "Bright-Eyed"
+    ],
+    "price": 8.0,
+    "rank": 5,
+    "resellMul": 0.5,
+    "description": "Small battery used to power stuff.\t",
+    "labelColor": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "legalStatus": 0,
+    "inDemo": true,
+    "stackSize": 20
+  },
+  {
+    "name": "Chili",
+    "Name": "Chili",
+    "ID": "chili",
+    "effects": [
+      "Spicy"
+    ],
+    "price": 7.0,
+    "rank": 4,
+    "resellMul": 0.5,
+    "description": "Yummy spicy chili.",
+    "labelColor": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "legalStatus": 0,
+    "inDemo": true,
+    "stackSize": 20
+  },
+  {
+    "name": "Cuke",
+    "Name": "Cuke",
+    "ID": "cuke",
+    "effects": [
+      "Energizing"
+    ],
+    "price": 2.0,
+    "rank": 0,
+    "resellMul": 0.5,
+    "description": "A refreshing can of Cuke that leaves you feeling energized. It's heaven in a can.",
+    "labelColor": [
+      1.0,
+      0.518756032,
+      0.325490236,
+      1.0
+    ],
+    "legalStatus": 0,
+    "inDemo": true,
+    "stackSize": 20
+  },
+  {
+    "name": "Donut",
+    "Name": "Donut",
+    "ID": "donut",
+    "effects": [
+      "Calorie-Dense"
+    ],
+    "price": 3.0,
+    "rank": 1,
+    "resellMul": 0.5,
+    "description": "Yummy strawberry frosted donut.",
+    "labelColor": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "legalStatus": 0,
+    "inDemo": true,
+    "stackSize": 20
+  },
+  {
+    "name": "EnergyDrink",
+    "Name": "Energy Drink",
+    "ID": "energydrink",
+    "effects": [
+      "Athletic"
+    ],
+    "price": 6.0,
+    "rank": 1,
+    "resellMul": 0.5,
+    "description": "Tasty energy drink filled with lots of yummy chemicals to make you feel refreshed. Removes the effects of drugs when consumed.",
+    "labelColor": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "legalStatus": 0,
+    "inDemo": true,
+    "stackSize": 20
+  },
+  {
+    "name": "FluMedicine",
+    "Name": "Flu Medicine",
+    "ID": "flumedicine",
+    "effects": [
+      "Sedating"
+    ],
+    "price": 5.0,
+    "rank": 4,
+    "resellMul": 0.5,
+    "description": "Pain reliever and mild sedative used to alleviate flu symptoms.",
+    "labelColor": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "legalStatus": 0,
+    "inDemo": true,
+    "stackSize": 20
+  },
+  {
+    "name": "Gasoline",
+    "Name": "Gasoline",
+    "ID": "gasoline",
+    "effects": [
+      "Toxic"
+    ],
+    "price": 5.0,
+    "rank": 5,
+    "resellMul": 0.5,
+    "description": "A jerry can full of gasoline.",
+    "labelColor": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "legalStatus": 0,
+    "inDemo": true,
+    "stackSize": 20
+  },
+  {
+    "name": "HorseSemen",
+    "Name": "Horse Semen",
+    "ID": "horsesemen",
+    "effects": [
+      "Long faced"
+    ],
+    "price": 9.0,
+    "rank": 3,
+    "resellMul": 0.5,
+    "description": "A big jug of ethically sourced horse semen.",
+    "labelColor": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "legalStatus": 0,
+    "inDemo": true,
+    "stackSize": 20
+  },
+  {
+    "name": "Iodine",
+    "Name": "Iodine",
+    "ID": "iodine",
+    "effects": [
+      "Jennerising"
+    ],
+    "price": 8.0,
+    "rank": 1,
+    "resellMul": 0.5,
+    "description": "Chemical element that is an essential nutrient in a healthy diet. It also has other purposes.",
+    "labelColor": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "legalStatus": 0,
+    "inDemo": true,
+    "stackSize": 20
+  },
+  {
+    "name": "MegaBean",
+    "Name": "Mega Bean",
+    "ID": "megabean",
+    "effects": [
+      "Foggy"
+    ],
+    "price": 7.0,
+    "rank": 3,
+    "resellMul": 0.5,
+    "description": "An unusually large bean of mysterious origin.",
+    "labelColor": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "legalStatus": 0,
+    "inDemo": true,
+    "stackSize": 20
+  },
+  {
+    "name": "MotorOil",
+    "Name": "Motor Oil",
+    "ID": "motoroil",
+    "effects": [
+      "Slippery"
+    ],
+    "price": 6.0,
+    "rank": 2,
+    "resellMul": 0.5,
+    "description": "Specially formulated oil used for lubricating the moving stuff in an engine.",
+    "labelColor": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "legalStatus": 0,
+    "inDemo": true,
+    "stackSize": 20
+  },
+  {
+    "name": "MouthWash",
+    "Name": "Mouth Wash",
+    "ID": "mouthwash",
+    "effects": [
+      "Balding"
+    ],
+    "price": 4.0,
+    "rank": 3,
+    "resellMul": 0.5,
+    "description": "Antiseptic mouth wash for a minty fresh breath.",
+    "labelColor": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "legalStatus": 0,
+    "inDemo": true,
+    "stackSize": 20
+  },
+  {
+    "name": "Paracetamol",
+    "Name": "Paracetamol",
+    "ID": "paracetamol",
+    "effects": [
+      "Sneaky"
+    ],
+    "price": 3.0,
+    "rank": 2,
+    "resellMul": 0.5,
+    "description": "Mild over-the-counter painkiller",
+    "labelColor": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "legalStatus": 0,
+    "inDemo": true,
+    "stackSize": 20
+  },
+  {
+    "name": "Viagor",
+    "Name": "Viagor",
+    "ID": "viagor",
+    "effects": [
+      "Tropic Thunder"
+    ],
+    "price": 4.0,
+    "rank": 2,
+    "resellMul": 0.5,
+    "description": "Great for treating altitude sickness, and some other stuff.",
+    "labelColor": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "legalStatus": 0,
+    "inDemo": true,
+    "stackSize": 20
+  }
+]
