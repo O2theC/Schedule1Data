@@ -8,7 +8,7 @@
 #include <cstdint>
 #include <boost/container/small_vector.hpp>
 
-#define MAX_MIXS 39
+#define MAX_MIXS 8
 #define EFFECT_AMT %EFFECT_AMT%
 #define BASE_AMT %BASE_AMT%
 #define ITEM_AMT %ITEM_AMT%
