@@ -28,7 +28,7 @@ for (var i = 0; i < reg.Count; i++)
         continue;
     }
     // kim was c1b11ce1-2d06-4b9a-a563-21bbd3dacfa8
-// lets see if it stays the same 
+    // lets see if it stays the same 
     CustomerData data = customer.customerData;
     var jsonData = new Dictionary<string, object>();
     jsonData["fullName"] = reg[i].fullName;
@@ -49,6 +49,7 @@ for (var i = 0; i < reg.Count; i++)
     jsonData["MinMutualRelationRequirement"] = data.MinMutualRelationRequirement;
     jsonData["MinOrdersPerWeek"] = data.MinOrdersPerWeek;
     jsonData["MinWeeklySpend"] = data.MinWeeklySpend;
+    jsonData["OrderTime"] = data.OrderTime;
     jsonData["PreferredOrderDay"] = data.PreferredOrderDay;
     var effectList = new List<string>();
     for (int ii = 0; ii < data.PreferredProperties.Count; ii++)
@@ -56,8 +57,8 @@ for (var i = 0; i < reg.Count; i++)
         effectList.Add(data.PreferredProperties[ii].name);
     }
     jsonData["PreferredProperties"] = effectList;
-    jsonData["Standards"] = data.Standards;
-	jsonData["CurrentAddiction"] = customer.CurrentAddiction;
+    jsonData["Standards"] = data.Standards.ToString();
+    jsonData["CurrentAddiction"] = customer.CurrentAddiction;
     jsonData["Relationship"] = customer.NPC.RelationData.RelationDelta;
     jsonData["Unlocked"] = customer.NPC.RelationData.Unlocked;
     var connections = new List<string>();
@@ -72,11 +73,15 @@ for (var i = 0; i < reg.Count; i++)
         affinities[customer.currentAffinityData.ProductAffinities[ii].DrugType.ToString()] = customer.currentAffinityData.ProductAffinities[ii].Affinity;
     }
     jsonData["ProductAffinities"] = affinities;
+    jsonData["Region"] = reg[i].Region;
+
+
+
 
     dict.Add(jsonData);
     // Log(data.name);
 }
 
 
-GUIUtility.systemCopyBuffer = JsonConvert.SerializeObject(dict,settings);
+GUIUtility.systemCopyBuffer = JsonConvert.SerializeObject(dict, settings);
 // Log(JsonConvert.SerializeObject(dict,settings));

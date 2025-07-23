@@ -1,4 +1,15 @@
-import json
+import os
+import sys
+
+if(os.path.exists("./getData") and os.path.isdir("./getData")):
+    os.chdir("./getData")
+
+print(os.getcwd())
+sys.path.insert(0, os.getcwd())
+
+from pyLib import *
+    
+
 
 
 nameKeyOrID = "Name"
@@ -12,36 +23,10 @@ floatScaler = 100  # there are some float values but float is bad, so we use int
 
 
 
-with open("./getData/dataFile/template.hpp", "r") as f:
+with open("./dataFile/template.hpp", "r") as f:
     template = f.read()
 
 
-BasesData = {}
-EffectData = {}
-ItemData = {}
-MixData = {}
-
-with open("./getData/data/BaseData.json") as f:
-    BasesData = json.load(f)
-with open("./getData/data/EffectData.json") as f:
-    EffectData = json.load(f)
-with open("./getData/data/ItemData.json") as f:
-    ItemData = json.load(f)
-with open("./getData/extrapolatedData/mixData.json") as f:
-    MixData = json.load(f)
-
-BasesLookup = {}
-EffectLookup = {}
-ItemLookup = {}
-
-for i in range(len(BasesData)):
-    BasesLookup[BasesData[i][nameKeyOrID]] = i
-
-for i in range(len(EffectData)):
-    EffectLookup[EffectData[i][nameKeyOrID]] = i
-
-for i in range(len(ItemData)):
-    ItemLookup[EffectData[i][nameKeyOrID]] = i
 
 
 
@@ -73,7 +58,7 @@ def makeReplaceMap(item):
 
 ItemAmt = len(ItemData)
 EffectAmt = len(EffectData)
-BaseAmt = len(BasesData)
+BaseAmt = len(BaseData)
 ItemEffectChangers = max([len(MixData[mixKey].keys()) for mixKey in MixData.keys()])
 # print(template[:300])
 template = template.replace(r"%EFFECT_AMT%", str(EffectAmt))
@@ -119,7 +104,7 @@ BaseCosts = [375, 438, 500, 562, 1900, 3383]
 BaseBaseEffects = []
 BaseNames = []
 
-for base in BasesData:
+for base in BaseData:
     BasePrices.append(base["basePrice"])
     # it weird, it stores it as an array, did dev intend for items to have multiple effects in the future, they seem to have intended for different mix maps for different things, like weed and meth mix differently , but both link to the weed mix map, it's intresting
     if (len(base["effects"])>0):
@@ -173,5 +158,5 @@ template = template.replace(r"%ITEM_NAMES%",ItemNamesStr)
 
 
 
-with open("./getData/dataFile/dataFile.hpp", "w") as f:
+with open("./dataFile/dataFile.hpp", "w") as f:
     f.write(template)
