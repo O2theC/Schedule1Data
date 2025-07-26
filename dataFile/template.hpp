@@ -421,7 +421,7 @@ struct NodeBase{
     uint8_t mixDepth = ((uint8_t)0) - 1;
     small_vector<uint32_t, ITEM_AMT> childrenIndexs;// parent and children are needed so when a better path is found, cost can be propagated
     uint32_t parentIndex = 25000000;    
-    bool isStartNode; // when this is true, you can no longer expect parrent, or mixFromParrent to have valid data
+    bool isStartNode = false; // when this is true, you can no longer expect parrent, or mixFromParrent to have valid data
     uint32_t selfIndex = 0;
     
     constexpr NodeBase() {}
