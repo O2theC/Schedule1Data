@@ -2,6 +2,12 @@ import json
 from PIL import Image, ImageDraw
 import PIL.ImageDraw
 from PIL.ImageDraw import ImageDraw as ImageDrawType
+import os
+
+if(os.path.exists("./getData") and os.path.isdir("./getData")):
+    from getData.pyLib import *
+else:
+    from pyLib import *
 
 def toColor(li):
     return (int(li[0] * 255), int(li[1] * 255), int(li[2] * 255))
@@ -56,11 +62,10 @@ def genEffectMap(data: list[dict]):
         
         draw.text(pos, effect["Name"], fill=getTextColor(toColor(effect["productColor"])), anchor="mm",font_size=si)
 
-    img.save("./getData/extrapolatedData/effectMap.png")
+    img.save(pathPrefix+"./extrapolatedData/effectMap.png")
 
 
 if __name__ == "__main__":
-    with open("./getData/data/EffectData.json") as f:
-        data = json.load(f)
+    
     print("generating effect map img")
-    genEffectMap(data)
+    genEffectMap(EffectData)
