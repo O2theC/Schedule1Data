@@ -1,19 +1,16 @@
 import json
 import math
 import os
+if(os.path.exists("./getData") and os.path.isdir("./getData")):
+    from getData.pyLib import *
+else:
+    from pyLib import *
 
 nameKeyorID = "Name"
 
 
 # load the raw data for effects and items
-effectData = json.load(open("./getData/data/EffectData.json", "r"))
-itemData = json.load(open("./getData/data/ItemData.json", "r"))
 
-effectLookup = dict()
-# it's useful to be able to get an effect from it's Name
-# as a standard, we use Name, since it's the most human readable
-for effect in effectData:
-    effectLookup[effect[nameKeyorID]] = effect
 
 rad = 0.4
 
@@ -34,26 +31,26 @@ allTransforms = dict()
 # calculate for each item, what effects turn into what other effects
 # this is done by getting the vector of the item's effect (each item has an effect associated with it)
 # and applying that vector against the "postion"(each effect has a vector which is also kind of used as a position) of the input effect 
-for effect in effectData:
+for effect in EffectData:
     pos: list[float] = effect["pos"]
 
-    for item in itemData:
+    for item in ItemData:
         vec = [0, 0]
         for itemEffect in item["effects"]:
             vec[0] += (
-                effectLookup[itemEffect]["mixDir"][0]
-                * effectLookup[itemEffect]["mixMagnitude"]
+                EffectLookup[itemEffect]["mixDir"][0]
+                * EffectLookup[itemEffect]["mixMagnitude"]
             )
             vec[1] += (
-                effectLookup[itemEffect]["mixDir"][1]
-                * effectLookup[itemEffect]["mixMagnitude"]
+                EffectLookup[itemEffect]["mixDir"][1]
+                * EffectLookup[itemEffect]["mixMagnitude"]
             )
 
         posCopy = pos.copy()
         posCopy[0] += vec[0]
         posCopy[1] += vec[1]
 
-        for effect2 in effectData:
+        for effect2 in EffectData:
             effect2Pos = effect2["pos"]
             if (
                 math.sqrt(
@@ -87,13 +84,13 @@ maxDepth = 13
 
 highestDis = 0
 
-if os.path.exists("./getData/extrapolatedData"):
-    if os.path.isfile("./getData/extrapolatedData"):
+if os.path.exists(pathPrefix+"./extrapolatedData"):
+    if os.path.isfile(pathPrefix+"./extrapolatedData"):
         print("please make extrapolatedData a directory/folder , not a file")
         exit(1)
 else:
     print("extrapolatedData folder does not exist, making now")
-    os.mkdir("./getData/extrapolatedData")
+    os.mkdir(pathPrefix+"./extrapolatedData")
 
 # 88acf783fb4eec3dea8b009565b1783a7015a8d8a2d9f3949c9786d8577acf015c237cb991f1d56a87ce30f703f90abdd532f68090bb6354fd201dfdbb4e53e3
 # a80694f5ce1263f14605ade53e72e94b4c7ab65f778486a44cbbf0d592947229feec06bb8b5b777285cf9aa72bc494cb372f14b31636758a6d2863a84168fafa
@@ -126,9 +123,9 @@ def findEffectDistance(effect, effect2, depth, history):
         return dis
 
 print("working on part 1")
-bar = tqdm.tqdm(total=len(effectData) ** 2)
-for effect in effectData:
-    for effect2 in effectData:
+bar = tqdm.tqdm(total=len(EffectData) ** 2)
+for effect in EffectData:
+    for effect2 in EffectData:
         bar.update(1)
         effectDistance[effect[nameKeyorID]] = effectDistance.get(effect[nameKeyorID], dict())
         if effectDistance[effect[nameKeyorID]].get(effect2[nameKeyorID], None) == None:
@@ -139,12 +136,12 @@ for effect in effectData:
 bar.close()
 print("part 1 done")
 print("working on part 2")
-bar = tqdm.tqdm(total=len(effectData))
-for effect2 in effectData:
+bar = tqdm.tqdm(total=len(EffectData))
+for effect2 in EffectData:
     dis = 200
     bar.update(1)
-    for effectItem in itemData:
-        fromEffect = effectLookup[effectItem["effects"][0]]
+    for effectItem in ItemData:
+        fromEffect = EffectLookup[effectItem["effects"][0]]
         dis = min(dis, findEffectDistance(fromEffect, effect2, 0, []) + 1)
     effectDistance["zeroPos"] = effectDistance.get("zeroPos", dict())
     effectDistance["zeroPos"][effect2[nameKeyorID]] = dis
@@ -161,11 +158,11 @@ print("if highest dis is at or above maxdepth, then maxdepth should be increased
 
 
 
-with open("./getData/extrapolatedData/mixData.json", "w") as f:
+with open(pathPrefix+"./extrapolatedData/mixData.json", "w") as f:
     f.write(json.dumps(mixData, indent=4))
 
-with open("./getData/extrapolatedData/allTransforms.json", "w") as f:
+with open(pathPrefix+"./extrapolatedData/allTransforms.json", "w") as f:
     f.write(json.dumps(allTransforms, indent=4))
 
-with open("./getData/extrapolatedData/effectDistance.json", "w") as f:
+with open(pathPrefix+"./extrapolatedData/effectDistance.json", "w") as f:
     f.write(json.dumps(effectDistance, indent=4))

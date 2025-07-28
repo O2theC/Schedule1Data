@@ -1,13 +1,9 @@
 import os
-import sys
 
 if(os.path.exists("./getData") and os.path.isdir("./getData")):
-    os.chdir("./getData")
-
-print(os.getcwd())
-sys.path.insert(0, os.getcwd())
-
-from pyLib import *
+    from getData.pyLib import *
+else:
+    from pyLib import *
     
 
 
@@ -23,7 +19,7 @@ floatScaler = 100  # there are some float values but float is bad, so we use int
 
 
 
-with open("./dataFile/template.hpp", "r") as f:
+with open(pathPrefix+"./dataFile/template.hpp", "r") as f:
     template = f.read()
 
 
@@ -158,5 +154,5 @@ template = template.replace(r"%ITEM_NAMES%",ItemNamesStr)
 
 
 
-with open("./dataFile/dataFile.hpp", "w") as f:
+with open(pathPrefix+"./dataFile/dataFile.hpp", "w") as f:
     f.write(template)

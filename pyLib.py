@@ -1,16 +1,23 @@
 import json
+import os
+
+
+if(os.path.exists("./getData") and os.path.isdir("./getData")):
+    pathPrefix = "./getData/"
+else:
+    pathPrefix = ""
 
 nameKeyOrID = "Name"
 
-with open("./data/BaseData.json") as f:
+with open(pathPrefix+"./data/BaseData.json") as f:
     BaseData = json.load(f)
-with open("./data/CustomerData.json") as f:
+with open(pathPrefix+"./data/CustomerData.json") as f:
     CustomerData = json.load(f)
-with open("./data/EffectData.json") as f:
+with open(pathPrefix+"./data/EffectData.json") as f:
     EffectData = json.load(f)
-with open("./data/ItemData.json") as f:
+with open(pathPrefix+"./data/ItemData.json") as f:
     ItemData = json.load(f)
-with open("./extrapolatedData/mixData.json") as f:
+with open(pathPrefix+"./extrapolatedData/mixData.json") as f:
     MixData = json.load(f)
     
     

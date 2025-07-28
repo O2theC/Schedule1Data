@@ -1,9 +1,13 @@
 import json
+import os
+if(os.path.exists("./getData") and os.path.isdir("./getData")):
+    from getData.pyLib import *
+else:
+    from pyLib import *
 
 
 
-
-data:list[dict[str,str]] = json.load(open("./getData/customerData.json","r"))
+data:list[dict[str,str]] = json.load(open(pathPrefix+"./customerData.json","r"))
 
 avg = {}
 
