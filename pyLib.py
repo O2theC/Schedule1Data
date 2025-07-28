@@ -33,7 +33,7 @@ for i in range(len(EffectData)):
     EffectLookup[EffectData[i][nameKeyOrID]] = i
 
 for i in range(len(ItemData)):
-    ItemLookup[EffectData[i][nameKeyOrID]] = i
+    ItemLookup[ItemData[i][nameKeyOrID]] = i
     
 for i in range(len(CustomerData)):
     CustomerLookup[CustomerData[i]["fullName"]] = i
