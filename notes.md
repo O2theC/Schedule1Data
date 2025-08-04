@@ -1,0 +1,1 @@
+all scripts are to be ran with PYTHONPATH=. assuming cwd is the root of this repo
