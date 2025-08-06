@@ -14,6 +14,7 @@
 #define ITEM_AMT 16
 #define MAX_ITEM_EFFECT_CHANGERS 11
 #define SCALER 100
+#define GAME_VERSION "v0.3.6f6"
 
 constexpr uint8_t MIX_BYTES = std::ceil(std::log2(MAX_MIXS) / 8.0);
 constexpr uint8_t EFFECTS_BYTES = std::ceil(EFFECT_AMT / 8.0);
