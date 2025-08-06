@@ -21,18 +21,15 @@ constexpr uint8_t EFFECTS_BYTES = std::ceil(EFFECT_AMT / 8.0);
 constexpr uint8_t BASES_BYTES = std::ceil(std::log2(BASE_AMT) / 8.0);
 constexpr uint8_t ITEMS_BYTES = std::ceil(std::log2(ITEM_AMT) / 8.0);
 
-
-
 using boost::container::small_vector;
 using fmt::format;
 using std::string;
 using std::vector;
 
-
 constexpr uint16_t EFFECT_MODIFIERS[] = {10,18,16,12,0,14,0,28,0,22,20,26,24,0,32,30,36,0,0,34,38,40,48,42,0,0,44,46,54,56,50,0,52,60,58};
 
-//not a fan of having to have these up here, but i don't want another file
-//has to be below EFFECT_MODIFIERS because it uses, at least IDEs allow compress/unexpand stuff
+// not a fan of having to have these up here, but i don't want another file
+// has to be below EFFECT_MODIFIERS because it uses, at least IDEs allow compress/unexpand stuff
 
 template <typename T>
 inline void hash_combine(std::size_t &seed, const T &val)
@@ -103,8 +100,11 @@ void print(const Type &var)
     std::cout << var << std::endl;
 }
 
-
 const float EFFECT_ADDICTION[] = {0.0,0.235,0.104,0.096,0.0,0.104,0.0,0.1,0.0,0.34,0.0,0.0,0.327,0.0,0.607,0.0,0.1,0.1,0.0,0.309,0.665,0.2,0.472,0.343,0.0,0.0,0.37,0.803,0.611,0.1,0.235,0.0,0.607,0.336,0.598};
+
+constexpr size_t effectLookupByName(string effectName);
+constexpr size_t baseLookupByName(string baseName);
+constexpr size_t itemLookupByName(string itemName);
 
 struct EffectSet
 {
@@ -141,9 +141,10 @@ struct EffectSet
         uint16_t addiction = 0;
         for (uint8_t effectId : *this)
         {
-            addiction += (int)(EFFECT_ADDICTION[effectId]*1000);
+            addiction += (int)(EFFECT_ADDICTION[effectId] * 1000);
         }
-        if(addiction > 1000){
+        if (addiction > 1000)
+        {
             return 1000;
         }
         return addiction;
@@ -189,9 +190,10 @@ struct EffectSet
         uint8_t operator*() const
         {
             return index;
-        }};
+        }
+    };
 
-     Iterator begin() const { return Iterator(this, 0); }
+    Iterator begin() const { return Iterator(this, 0); }
     Iterator end() const { return Iterator(this, EFFECT_AMT); }
 
     constexpr void clear()
@@ -199,17 +201,30 @@ struct EffectSet
         effects.clear();
     };
 
-   void add(const uint8_t effectId)
+    void add(const uint8_t effectId)
     {
         // effects |= (1 << effect.id);
-        if(effectId == 255){
-            print("invaild effect id, did you use invaild name with effect lookup?");
-            std::abort();
+        if (effectId == 255)
+        {
+            throw std::invalid_argument("Invalid effect id : " + std::to_string(effectId));
         }
         effects.setTrue(effectId);
         if (effects.bitcount() > 8)
         {
-            std::abort();
+            throw std::range_error("EffectSet has more than 8 effects : " + std::to_string(this->effects.data));
+        }
+    };
+
+    void add(const std::string effectName)
+    {
+        // effects |= (1 << effect.id);
+        try
+        {
+            this->add(effectLookupByName(effectName));
+        }
+        catch (std::invalid_argument &e)
+        {
+            throw std::invalid_argument("Effect ID could not be found for given name : " + effectName);
         }
     };
 
@@ -267,9 +282,261 @@ struct EffectSet
     }
 };
 
+struct BaseSet
+{
+    customBitSet bases;
+    constexpr BaseSet() { clear(); };
+
+    constexpr BaseSet(const uint8_t baseId)
+    {
+        clear();
+        add(baseId);
+    };
+
+    BaseSet(const BaseSet &basesOther, const uint8_t baseId);
+
+    constexpr BaseSet(const uint64_t bases_) : bases(bases_) {
+                                               };
+
+    template <size_t N>
+    constexpr BaseSet(uint8_t bases[N])
+    {
+        for (uint8_t i = 0; i < N; i++)
+        {
+            add(bases[i]);
+        };
+    }
+
+    constexpr bool operator==(const BaseSet &other) const
+    {
+        return this->bases.data == other.bases.data;
+    }
+
+    struct Iterator
+    {
+        const BaseSet *parent;
+        uint8_t index;
+
+        Iterator(const BaseSet *parent, uint8_t start)
+            : parent(parent), index(start)
+        {
+            if (!parent->bases.test(0))
+            {
+                next();
+            }
+        }
+
+        void next()
+        {
+            if (index >= BASE_AMT || parent->bases.data >> (index + 1) == 0)
+            {
+                index = BASE_AMT;
+                return;
+            }
+
+            index = this->parent->bases.findNext(index + 1);
+        }
+
+        Iterator &operator++()
+        {
+            next();
+            return *this;
+        }
+
+        bool operator!=(const Iterator &other) const
+        {
+            return index != other.index;
+        }
+
+        uint8_t operator*() const
+        {
+            return index;
+        }
+    };
+
+    Iterator begin() const { return Iterator(this, 0); }
+    Iterator end() const { return Iterator(this, BASE_AMT); }
+
+    constexpr void clear()
+    {
+        this->bases.clear();
+    };
+
+    void add(const uint8_t baseId)
+    {
+        if (baseId == 255)
+        {
+            throw std::invalid_argument("Invalid base id : " + std::to_string(baseId));
+        }
+        this->bases.setTrue(baseId);
+    };
+
+    void add(const std::string baseName)
+    {
+        try
+        {
+            this->add(baseLookupByName(baseName));
+        }
+        catch (std::invalid_argument &e)
+        {
+            throw std::invalid_argument("Base ID could not be found for given name : " + baseName);
+        }
+    };
+
+    void remove(const uint8_t baseId)
+    {
+        this->bases.setFalse(baseId);
+    };
+
+    size_t size() const
+    {
+        return this->bases.bitcount();
+    }
+
+    bool contains(const BaseSet &other) const
+    {
+
+        if (this->bases.bitcount() > 8)
+        {
+            std::abort();
+        }
+        return other.bases.data == (this->bases.data & other.bases.data);
+    }
+
+    bool containsAny(const BaseSet &other) const
+    {
+
+        if (this->bases.bitcount() > 8)
+        {
+            std::abort();
+        }
+        return this->bases.data & other.bases.data;
+    }
+};
+
+struct ItemSet
+{
+    customBitSet items;
+    constexpr ItemSet() { clear(); };
+
+    constexpr ItemSet(const uint8_t itemId)
+    {
+        clear();
+        add(itemId);
+    };
+
+    ItemSet(const ItemSet &effectsOther, const uint8_t itemId);
+
+    constexpr ItemSet(const uint64_t items_) : items(items_) {
+                                               };
+
+    template <size_t N>
+    constexpr ItemSet(uint8_t items[N])
+    {
+        for (uint8_t i = 0; i < N; i++)
+        {
+            add(items[i]);
+        };
+    }
+
+    constexpr bool operator==(const ItemSet &other) const
+    {
+        return items.data == other.items.data;
+    }
+
+    struct Iterator
+    {
+        const ItemSet *parent;
+        uint8_t index;
+
+        Iterator(const ItemSet *parent, uint8_t start)
+            : parent(parent), index(start)
+        {
+            if (!parent->items.test(0))
+            {
+                next();
+            }
+        }
+
+        void next()
+        {
+            if (index >= ITEM_AMT || parent->items.data >> (index + 1) == 0)
+            {
+                index = ITEM_AMT;
+                return;
+            }
+
+            index = this->parent->items.findNext(index + 1);
+        }
+
+        Iterator &operator++()
+        {
+            next();
+            return *this;
+        }
+
+        bool operator!=(const Iterator &other) const
+        {
+            return index != other.index;
+        }
+
+        uint8_t operator*() const
+        {
+            return index;
+        }
+    };
+
+    Iterator begin() const { return Iterator(this, 0); }
+    Iterator end() const { return Iterator(this, ITEM_AMT); }
+
+    constexpr void clear()
+    {
+        items.clear();
+    };
+
+    void add(const uint8_t itemId)
+    {
+        if (itemId == 255)
+        {
+            throw std::invalid_argument("Invalid item id : " + std::to_string(itemId));
+        }
+        items.setTrue(itemId);
+    };
+
+    void add(const std::string itemName)
+    {
+        try
+        {
+            this->add(itemLookupByName(itemName));
+        }
+        catch (std::invalid_argument &e)
+        {
+            throw std::invalid_argument("Item ID could not be found for given name : " + itemName);
+        }
+    };
+
+    void remove(const uint8_t effectId)
+    {
+        items.setFalse(effectId);
+    };
+
+    size_t size() const
+    {
+        return items.bitcount();
+    }
+
+    bool contains(const ItemSet &other) const
+    {
+        return other.items.data == (items.data & other.items.data);
+    }
+
+    bool containsAny(const ItemSet &other) const
+    {
+        return items.data & other.items.data;
+    }
+};
+
 void mixItem(EffectSet &effects, const uint8_t itemId);
-
-
 
 const std::string EFFECTNAMES[] = {"Calming","Euphoric","Focused","Munchies","Paranoia","Refreshing","Smelly","Calorie-Dense","Disorienting","Energizing","Gingeritis","Sedating","Sneaky","Toxic","Athletic","Balding","Foggy","Laxative","Seizure-Inducing","Slippery","Spicy","Bright-Eyed","Glowing","Jennerising","Lethal","Schizophrenic","Thought-Provoking","Tropic Thunder","Anti-gravity","Cyclopean","Electrifying","Explosive","Long faced","Shrinking","Zombifying"};
 
@@ -311,9 +578,6 @@ constexpr uint8_t ITEM_EFFECT_REPLACE_MAP[ITEM_AMT][EFFECT_AMT] = {
 
 const std::string ITEM_NAMES[] = {"Addy","Banana","Battery","Chili","Cuke","Donut","Energy Drink","Flu Medicine","Gasoline","Horse Semen","Iodine","Mega Bean","Motor Oil","Mouth Wash","Paracetamol","Viagor"};
 
-
-
-
 namespace std
 {
     template <>
@@ -334,7 +598,8 @@ struct customVector
     Type data[Capacity];
     uint8_t length;
 
-    constexpr customVector() {
+    constexpr customVector()
+    {
         length = 0;
     };
 
@@ -342,7 +607,6 @@ struct customVector
     constexpr customVector(const customVector<OtherType, Capacity> &other) : data(other.data), length(other.length)
     {
     }
-
 
     constexpr customVector(const Type otherData[Capacity], const uint8_t otherLength) : data(otherData), length(otherLength) {}
 
@@ -428,19 +692,20 @@ struct customVector
     Iterator end() const { return Iterator(this, length); }
 };
 
-struct NodeBase{
-    uint8_t baseId = 255; // strain base id
+struct NodeBase
+{
+    uint8_t baseId = 255;        // strain base id
     uint8_t mixFromParent = 255; // item id
 
     uint32_t makeprice = ((uint32_t)0) - 1; // total ingrident cost so far (note uses a scaler of 100 to allow for decimals )
-    EffectSet effects;  // what effects does it have, a position of sorts
+    EffectSet effects;                      // what effects does it have, a position of sorts
 
     uint8_t mixDepth = ((uint8_t)0) - 1;
-    small_vector<uint32_t, ITEM_AMT> childrenIndexs;// parent and children are needed so when a better path is found, cost can be propagated
-    uint32_t parentIndex = 25000000;    
+    small_vector<uint32_t, ITEM_AMT> childrenIndexs; // parent and children are needed so when a better path is found, cost can be propagated
+    uint32_t parentIndex = 25000000;
     bool isStartNode = false; // when this is true, you can no longer expect parrent, or mixFromParrent to have valid data
     uint32_t selfIndex = 0;
-    
+
     constexpr NodeBase() {}
 
     NodeBase(const small_vector<uint32_t, ITEM_AMT> &childrenIndexs_) : childrenIndexs(childrenIndexs_) {}
@@ -450,34 +715,32 @@ struct NodeBase{
     constexpr NodeBase(const uint8_t baseId_, const uint8_t index) : baseId(baseId_), makeprice(BASE_COSTS[baseId_]), effects(BASE_BASE_EFFECTS[baseId_]), mixDepth(0), isStartNode(true), selfIndex(index) {};
 };
 
-
 namespace std
 {
-	template <>
-	struct hash<NodeBase>
-	{
-		std::size_t operator()(const NodeBase &node) const noexcept
-		{
-			std::size_t seed = 0;
-			hash_combine(seed, node.baseId);
-			hash_combine(seed, node.mixFromParent);
-			hash_combine(seed, node.makeprice);
-			hash_combine(seed, node.effects);
-			hash_combine(seed, node.mixDepth);
-			hash_combine(seed, node.parentIndex);
+    template <>
+    struct hash<NodeBase>
+    {
+        std::size_t operator()(const NodeBase &node) const noexcept
+        {
+            std::size_t seed = 0;
+            hash_combine(seed, node.baseId);
+            hash_combine(seed, node.mixFromParent);
+            hash_combine(seed, node.makeprice);
+            hash_combine(seed, node.effects);
+            hash_combine(seed, node.mixDepth);
+            hash_combine(seed, node.parentIndex);
             hash_combine(seed, node.isStartNode);
             hash_combine(seed, node.selfIndex);
-			for (size_t i = 0; i < node.childrenIndexs.size(); i++)
-			{
-				hash_combine(seed, node.childrenIndexs[i]);
-			}
+            for (size_t i = 0; i < node.childrenIndexs.size(); i++)
+            {
+                hash_combine(seed, node.childrenIndexs[i]);
+            }
 
-			return seed;
-		}
-	};
+            return seed;
+        }
+    };
 
 }
-
 
 constexpr size_t stringSearch(const std::string *list, uint8_t len, string toFind)
 {

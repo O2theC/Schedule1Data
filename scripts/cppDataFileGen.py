@@ -59,11 +59,11 @@ EffectAmt = len(EffectData)
 BaseAmt = len(BaseData)
 ItemEffectChangers = max([len(MixData[mixKey].keys()) for mixKey in MixData.keys()])
 # print(template[:300])
-template = template.replace(r"%EFFECT_AMT%", str(EffectAmt))
-template = template.replace(r"%BASE_AMT%", str(BaseAmt))
-template = template.replace(r"%ITEM_AMT%", str(ItemAmt))
-template = template.replace(r"%SCALER%", str(floatScaler))
-template = template.replace(r"%EFFECT_CHANGERS_AMT%", str(ItemEffectChangers))
+template = template.replace(r"$EFFECT_AMT$", str(EffectAmt))
+template = template.replace(r"$BASE_AMT$", str(BaseAmt))
+template = template.replace(r"$ITEM_AMT$", str(ItemAmt))
+template = template.replace(r"$SCALER$", str(floatScaler))
+template = template.replace(r"$EFFECT_CHANGERS_AMT$", str(ItemEffectChangers))
 
 EffectModifiers = []
 EffectAddiction = []
@@ -89,9 +89,9 @@ EffectAddictionStr = (
 EffectNamesStr = "{" + ",".join([f'"{effect}"' for effect in EffectNames]) + "}"
 
 
-template = template.replace(r"%EFFECT_MODIFIERS%", EffectModifiersStr)
-template = template.replace(r"%EFFECT_ADDICTION%", EffectAddictionStr)
-template = template.replace(r"%EFFECT_NAMES%", EffectNamesStr)
+template = template.replace(r"$EFFECT_MODIFIERS$", EffectModifiersStr)
+template = template.replace(r"$EFFECT_ADDICTION$", EffectAddictionStr)
+template = template.replace(r"$EFFECT_NAMES$", EffectNamesStr)
 
 # what the base sells for with effects changing it
 BasePrices = []
@@ -119,10 +119,10 @@ BaseBaseEffectsStr = (
 BaseNamesStr = "{" + ",".join([f'"{name}"' for name in BaseNames]) + "}"
 
 
-template = template.replace(r"%BASE_PRICES%", BasePricesStr)
-template = template.replace(r"%BASE_COSTS%", BaseCostsStr)
-template = template.replace(r"%BASE_EFFECTS%", BaseBaseEffectsStr)
-template = template.replace(r"%BASE_NAMES%", BaseNamesStr)
+template = template.replace(r"$BASE_PRICES$", BasePricesStr)
+template = template.replace(r"$BASE_COSTS$", BaseCostsStr)
+template = template.replace(r"$BASE_EFFECTS$", BaseBaseEffectsStr)
+template = template.replace(r"$BASE_NAMES$", BaseNamesStr)
 
 
 ItemPrices = []
@@ -161,11 +161,11 @@ ItemEffectReplaceMapStr = (
 ItemNamesStr = "{" + ",".join([f'"{name}"' for name in ItemNames]) + "}"
 
 
-template = template.replace(r"%ITEM_PRICES%", ItemPricesStr)
-template = template.replace(r"%ITEM_EFFECTS%", ItemEffectsStr)
-template = template.replace(r"%ITEM_EFFECT_REPLACE_MASK%", ItemEffectReplaceMaskStr)
-template = template.replace(r"%ITEM_EFFECT_REPLACE_MAP%", ItemEffectReplaceMapStr)
-template = template.replace(r"%ITEM_NAMES%", ItemNamesStr)
+template = template.replace(r"$ITEM_PRICES$", ItemPricesStr)
+template = template.replace(r"$ITEM_EFFECTS$", ItemEffectsStr)
+template = template.replace(r"$ITEM_EFFECT_REPLACE_MASK$", ItemEffectReplaceMaskStr)
+template = template.replace(r"$ITEM_EFFECT_REPLACE_MAP$", ItemEffectReplaceMapStr)
+template = template.replace(r"$ITEM_NAMES$", ItemNamesStr)
 
 
 with open(pathPrefix + "./dataFile/dataFile.hpp", "w") as f:
