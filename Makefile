@@ -12,8 +12,6 @@ dataFile/dataFile.hpp: dataFile/template.hpp scripts/cppDataFileGen.py data/Base
 extrapolatedData/mixData.json: data/EffectData.json data/ItemData.json 
 	PYTHONPATH=. python scripts/extrapolateData.py
 
-pyLib.py:
-
 build: dataFile/dataFile.o
 
 
