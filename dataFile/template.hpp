@@ -8,7 +8,6 @@
 #include <cstdint>
 #include <boost/container/small_vector.hpp>
 
-#define MAX_MIXS 39
 #define EFFECT_AMT $EFFECT_AMT$
 #define BASE_AMT $BASE_AMT$
 #define ITEM_AMT $ITEM_AMT$
@@ -16,7 +15,6 @@
 #define SCALER $SCALER$
 #define GAME_VERSION "v0.3.6f6"
 
-constexpr uint8_t MIX_BYTES = std::ceil(std::log2(MAX_MIXS) / 8.0);
 constexpr uint8_t EFFECTS_BYTES = std::ceil(EFFECT_AMT / 8.0);
 constexpr uint8_t BASES_BYTES = std::ceil(std::log2(BASE_AMT) / 8.0);
 constexpr uint8_t ITEMS_BYTES = std::ceil(std::log2(ITEM_AMT) / 8.0);
