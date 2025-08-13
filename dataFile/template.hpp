@@ -141,10 +141,10 @@ struct EffectSet
         {
             addiction += (int)(EFFECT_ADDICTION[effectId] * 1000);
         }
-        if (addiction > 1000)
-        {
-            return 1000;
-        }
+        // if (addiction > 1000)
+        // {
+        //     return 1000;
+        // }
         return addiction;
     }
 
