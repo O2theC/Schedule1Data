@@ -13,7 +13,7 @@
 #define ITEM_AMT $ITEM_AMT$
 #define MAX_ITEM_EFFECT_CHANGERS $EFFECT_CHANGERS_AMT$
 #define SCALER $SCALER$
-#define GAME_VERSION "v0.3.6f6"
+#define GAME_VERSION "v0.4.2f8"
 
 constexpr uint8_t EFFECTS_BYTES = std::ceil(EFFECT_AMT / 8.0);
 constexpr uint8_t BASES_BYTES = std::ceil(std::log2(BASE_AMT) / 8.0);
@@ -753,3 +753,20 @@ constexpr size_t itemLookupByName(string itemName)
 }
 
 uint64_t pow(uint64_t base, uint64_t power);
+
+enum Bases {
+$BASE_ENUM$
+};
+
+enum Items {
+$ITEM_ENUM$
+};
+
+
+enum EFFECTS {
+$EFFECT_ENUM$
+};
+
+enum CUSTOMERS {
+$CUSTOMER_ENUM$
+};

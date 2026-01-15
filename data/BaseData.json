@@ -66,7 +66,7 @@
         "effects": [],
         "drugType": "Methamphetamine",
         "price": 70.0,
-        "description": "Classic methamphetamine. A powerful stimulant with intense physical and mentral addictiveness.",
+        "description": "Classic methamphetamine. A powerful stimulant with intense physical and mental addictiveness.",
         "legalStatus": "HighSeverityDrug",
         "inDemo": false,
         "baseAddictiveness": 0.6,
@@ -84,5 +84,18 @@
         "inDemo": false,
         "baseAddictiveness": 0.4,
         "basePrice": 150.0
+    },
+    {
+        "Name": "Shroom",
+        "name": "Shroom",
+        "ID": "shroom",
+        "effects": [],
+        "drugType": "Shrooms",
+        "price": 65.0,
+        "description": "Psychoactive magic mushroom. Induces strong hallucinogenic effects.\t",
+        "legalStatus": "ModerateSeverityDrug",
+        "inDemo": false,
+        "baseAddictiveness": 0.05,
+        "basePrice": 65.0
     }
 ]

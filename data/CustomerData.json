@@ -36,7 +36,8 @@
         "ProductAffinities": {
             "Marijuana": 0.0,
             "Methamphetamine": 1.0,
-            "Cocaine": -0.27
+            "Cocaine": -0.27,
+            "Shrooms": 0.5488758
         },
         "Region": "Northtown"
     },
@@ -76,7 +77,8 @@
         "ProductAffinities": {
             "Marijuana": 0.9272344,
             "Methamphetamine": -0.273790479,
-            "Cocaine": 0.25126
+            "Cocaine": 0.25126,
+            "Shrooms": 0.320330948
         },
         "Region": "Northtown"
     },
@@ -116,7 +118,8 @@
         "ProductAffinities": {
             "Marijuana": 0.6573825,
             "Methamphetamine": 0.8844335,
-            "Cocaine": 0.09767544
+            "Cocaine": 0.09767544,
+            "Shrooms": 0.745388865
         },
         "Region": "Suburbia"
     },
@@ -157,7 +160,8 @@
         "ProductAffinities": {
             "Marijuana": 1.0,
             "Methamphetamine": 0.66,
-            "Cocaine": 0.26
+            "Cocaine": 0.26,
+            "Shrooms": 1.0
         },
         "Region": "Northtown"
     },
@@ -198,7 +202,8 @@
         "ProductAffinities": {
             "Marijuana": 0.0,
             "Methamphetamine": 1.0,
-            "Cocaine": 0.21
+            "Cocaine": 0.21,
+            "Shrooms": 0.1469506
         },
         "Region": "Westville"
     },
@@ -222,19 +227,25 @@
         "MinWeeklySpend": 400.0,
         "OrderTime": 800,
         "PreferredOrderDay": "Monday",
-        "PreferredProperties": [],
+        "PreferredProperties": [
+            "Schizophrenic",
+            "Munchies",
+            "Calming"
+        ],
         "Standards": "Moderate",
         "CurrentAddiction": 0.0,
         "Relationship": 2.0,
         "Unlocked": false,
         "Connections": [
             "Randy Caulfield",
-            "Louis Fourier"
+            "Louis Fourier",
+            "Fungal Phil"
         ],
         "ProductAffinities": {
             "Marijuana": 0.724,
             "Methamphetamine": -0.512,
-            "Cocaine": 0.616
+            "Cocaine": 0.616,
+            "Shrooms": -0.809982657
         },
         "Region": "Downtown"
     },
@@ -274,7 +285,8 @@
         "ProductAffinities": {
             "Marijuana": 0.08743894,
             "Methamphetamine": -0.6264558,
-            "Cocaine": 0.5707524
+            "Cocaine": 0.5707524,
+            "Shrooms": -0.5821741
         },
         "Region": "Docks"
     },
@@ -315,7 +327,8 @@
         "ProductAffinities": {
             "Marijuana": 0.33875367,
             "Methamphetamine": 0.08089006,
-            "Cocaine": 0.541657
+            "Cocaine": 0.541657,
+            "Shrooms": -0.9263918
         },
         "Region": "Docks"
     },
@@ -356,7 +369,8 @@
         "ProductAffinities": {
             "Marijuana": 0.55,
             "Methamphetamine": 0.27,
-            "Cocaine": -0.61
+            "Cocaine": -0.61,
+            "Shrooms": -0.8021266
         },
         "Region": "Northtown"
     },
@@ -397,14 +411,15 @@
         "ProductAffinities": {
             "Marijuana": 0.3024659,
             "Methamphetamine": 0.308408469,
-            "Cocaine": -0.196892142
+            "Cocaine": -0.196892142,
+            "Shrooms": 0.128822133
         },
         "Region": "Northtown"
     },
     {
-        "fullName": "Tobas Wentworth",
+        "fullName": "Tobias Wentworth",
         "name": "Tobias",
-        "FirstName": "Tobas",
+        "FirstName": "Tobias",
         "LastName": "Wentworth",
         "ID": "tobias_wentworth",
         "GUID": "793de68e-63bc-429e-bb23-96e51fc0d34c",
@@ -432,13 +447,14 @@
         "Unlocked": false,
         "Connections": [
             "Michael Boog",
-            "Herbert bleuball",
+            "Herbert Bleuball",
             "Pearl Moore"
         ],
         "ProductAffinities": {
             "Marijuana": 0.186288238,
             "Methamphetamine": 0.7633481,
-            "Cocaine": 0.16926825
+            "Cocaine": 0.16926825,
+            "Shrooms": 0.408447236
         },
         "Region": "Uptown"
     },
@@ -479,7 +495,8 @@
         "ProductAffinities": {
             "Marijuana": 0.73,
             "Methamphetamine": -0.57,
-            "Cocaine": 0.86
+            "Cocaine": 0.86,
+            "Shrooms": -0.630510569
         },
         "Region": "Westville"
     },
@@ -519,7 +536,8 @@
         "ProductAffinities": {
             "Marijuana": -0.8211582,
             "Methamphetamine": -0.3561796,
-            "Cocaine": -0.276452184
+            "Cocaine": -0.276452184,
+            "Shrooms": -0.7755902
         },
         "Region": "Docks"
     },
@@ -562,7 +580,8 @@
         "ProductAffinities": {
             "Marijuana": 0.661835432,
             "Methamphetamine": 0.109853625,
-            "Cocaine": 0.166464686
+            "Cocaine": 0.166464686,
+            "Shrooms": 0.10216096
         },
         "Region": "Downtown"
     },
@@ -586,7 +605,11 @@
         "MinWeeklySpend": 800.0,
         "OrderTime": 1600,
         "PreferredOrderDay": "Saturday",
-        "PreferredProperties": [],
+        "PreferredProperties": [
+            "TropicThunder",
+            "Sedating",
+            "Jennerising"
+        ],
         "Standards": "High",
         "CurrentAddiction": 0.0,
         "Relationship": 2.0,
@@ -599,7 +622,8 @@
         "ProductAffinities": {
             "Marijuana": 0.527,
             "Methamphetamine": -0.512,
-            "Cocaine": 0.547
+            "Cocaine": 0.547,
+            "Shrooms": -0.035528034
         },
         "Region": "Suburbia"
     },
@@ -639,7 +663,8 @@
         "ProductAffinities": {
             "Marijuana": 0.679,
             "Methamphetamine": 0.226,
-            "Cocaine": 0.902
+            "Cocaine": 0.902,
+            "Shrooms": 0.281107754
         },
         "Region": "Westville"
     },
@@ -674,14 +699,15 @@
         "Unlocked": false,
         "Connections": [
             "Ray Hoffman",
-            "Herbert bleuball",
+            "Herbert Bleuball",
             "Walter Cussler",
             "Lily Turner"
         ],
         "ProductAffinities": {
             "Marijuana": 0.411,
             "Methamphetamine": -0.786,
-            "Cocaine": 1.0
+            "Cocaine": 1.0,
+            "Shrooms": -0.4815446
         },
         "Region": "Uptown"
     },
@@ -715,13 +741,14 @@
         "Relationship": 2.0,
         "Unlocked": false,
         "Connections": [
-            "Tobas Wentworth",
+            "Tobias Wentworth",
             "Leo Rivers"
         ],
         "ProductAffinities": {
             "Marijuana": 0.170571446,
             "Methamphetamine": 0.954737663,
-            "Cocaine": 0.700022459
+            "Cocaine": 0.700022459,
+            "Shrooms": 0.7702413
         },
         "Region": "Uptown"
     },
@@ -761,7 +788,8 @@
         "ProductAffinities": {
             "Marijuana": 0.508,
             "Methamphetamine": 1.0,
-            "Cocaine": 0.0
+            "Cocaine": 0.0,
+            "Shrooms": -0.07805717
         },
         "Region": "Westville"
     },
@@ -796,20 +824,22 @@
         "Unlocked": false,
         "Connections": [
             "Louis Fourier",
-            "Jennifer Rivera"
+            "Jennifer Rivera",
+            "Fungal Phil"
         ],
         "ProductAffinities": {
             "Marijuana": 0.326129645,
             "Methamphetamine": 0.447354048,
-            "Cocaine": 0.3176529
+            "Cocaine": 0.3176529,
+            "Shrooms": -0.400863439
         },
         "Region": "Downtown"
     },
     {
-        "fullName": "Herbert bleuball",
+        "fullName": "Herbert Bleuball",
         "name": "Herbert",
         "FirstName": "Herbert",
-        "LastName": "bleuball",
+        "LastName": "Bleuball",
         "ID": "herbert_bleuball",
         "GUID": "5cbaecbe-ecf7-4cd5-8bf3-db6d83cee193",
         "BaseAddiction": 0.0,
@@ -835,14 +865,15 @@
         "Relationship": 2.0,
         "Unlocked": false,
         "Connections": [
-            "Tobas Wentworth",
+            "Tobias Wentworth",
             "Pearl Moore",
             "Jen Heard"
         ],
         "ProductAffinities": {
             "Marijuana": 0.809644461,
             "Methamphetamine": 0.38896057,
-            "Cocaine": 0.269486874
+            "Cocaine": 0.269486874,
+            "Shrooms": 0.7085794
         },
         "Region": "Uptown"
     },
@@ -882,7 +913,8 @@
         "ProductAffinities": {
             "Marijuana": -0.73,
             "Methamphetamine": 0.88,
-            "Cocaine": 0.37
+            "Cocaine": 0.37,
+            "Shrooms": -0.0823552
         },
         "Region": "Northtown"
     },
@@ -922,7 +954,8 @@
         "ProductAffinities": {
             "Marijuana": 0.845007658,
             "Methamphetamine": -0.6381111,
-            "Cocaine": 0.4453871
+            "Cocaine": 0.4453871,
+            "Shrooms": -0.475144476
         },
         "Region": "Docks"
     },
@@ -962,7 +995,8 @@
         "ProductAffinities": {
             "Marijuana": 0.44398877,
             "Methamphetamine": 0.7921531,
-            "Cocaine": 0.249738812
+            "Cocaine": 0.249738812,
+            "Shrooms": 0.169000059
         },
         "Region": "Northtown"
     },
@@ -1003,7 +1037,8 @@
         "ProductAffinities": {
             "Marijuana": -0.571240664,
             "Methamphetamine": -0.383299947,
-            "Cocaine": 0.268096179
+            "Cocaine": 0.268096179,
+            "Shrooms": -0.7960152
         },
         "Region": "Docks"
     },
@@ -1046,7 +1081,8 @@
         "ProductAffinities": {
             "Marijuana": -0.755561352,
             "Methamphetamine": 0.299590319,
-            "Cocaine": -0.802351952
+            "Cocaine": -0.802351952,
+            "Shrooms": -0.5229913
         },
         "Region": "Northtown"
     },
@@ -1089,7 +1125,8 @@
         "ProductAffinities": {
             "Marijuana": 0.34,
             "Methamphetamine": 0.0,
-            "Cocaine": 0.61
+            "Cocaine": 0.61,
+            "Shrooms": 0.944
         },
         "Region": "Westville"
     },
@@ -1130,7 +1167,8 @@
         "ProductAffinities": {
             "Marijuana": 0.5778086,
             "Methamphetamine": -0.5788088,
-            "Cocaine": -0.3489071
+            "Cocaine": -0.3489071,
+            "Shrooms": -0.911964357
         },
         "Region": "Downtown"
     },
@@ -1171,7 +1209,8 @@
         "ProductAffinities": {
             "Marijuana": 0.75,
             "Methamphetamine": -0.84,
-            "Cocaine": -0.31
+            "Cocaine": -0.31,
+            "Shrooms": 0.889
         },
         "Region": "Downtown"
     },
@@ -1211,7 +1250,8 @@
         "ProductAffinities": {
             "Marijuana": 0.9,
             "Methamphetamine": 0.37,
-            "Cocaine": -0.15
+            "Cocaine": -0.15,
+            "Shrooms": -0.369486839
         },
         "Region": "Westville"
     },
@@ -1235,7 +1275,11 @@
         "MinWeeklySpend": 600.0,
         "OrderTime": 1630,
         "PreferredOrderDay": "Tuesday",
-        "PreferredProperties": [],
+        "PreferredProperties": [
+            "Cyclopean",
+            "Sedating",
+            "BrightEyed"
+        ],
         "Standards": "Moderate",
         "CurrentAddiction": 0.0,
         "Relationship": 2.0,
@@ -1249,7 +1293,8 @@
         "ProductAffinities": {
             "Marijuana": 0.72,
             "Methamphetamine": -0.3,
-            "Cocaine": 0.45
+            "Cocaine": 0.45,
+            "Shrooms": 0.658310652
         },
         "Region": "Docks"
     },
@@ -1289,7 +1334,8 @@
         "ProductAffinities": {
             "Marijuana": -0.8336539,
             "Methamphetamine": 0.399738282,
-            "Cocaine": 0.7902396
+            "Cocaine": 0.7902396,
+            "Shrooms": -0.225804061
         },
         "Region": "Suburbia"
     },
@@ -1330,7 +1376,8 @@
         "ProductAffinities": {
             "Marijuana": -0.8149884,
             "Methamphetamine": -0.234508872,
-            "Cocaine": -0.583647966
+            "Cocaine": -0.583647966,
+            "Shrooms": -0.756957
         },
         "Region": "Suburbia"
     },
@@ -1370,7 +1417,8 @@
         "ProductAffinities": {
             "Marijuana": 1.0,
             "Methamphetamine": 0.4,
-            "Cocaine": 0.74
+            "Cocaine": 0.74,
+            "Shrooms": 0.2351929
         },
         "Region": "Northtown"
     },
@@ -1410,7 +1458,8 @@
         "ProductAffinities": {
             "Marijuana": -0.876006842,
             "Methamphetamine": 0.41825363,
-            "Cocaine": 0.6501095
+            "Cocaine": 0.6501095,
+            "Shrooms": -0.9367663
         },
         "Region": "Downtown"
     },
@@ -1451,7 +1500,8 @@
         "ProductAffinities": {
             "Marijuana": 0.78,
             "Methamphetamine": -0.66,
-            "Cocaine": 0.15
+            "Cocaine": 0.15,
+            "Shrooms": 0.3931125
         },
         "Region": "Northtown"
     },
@@ -1491,7 +1541,8 @@
         "ProductAffinities": {
             "Marijuana": -0.575841665,
             "Methamphetamine": 0.557188034,
-            "Cocaine": 0.214603543
+            "Cocaine": 0.214603543,
+            "Shrooms": -0.09401494
         },
         "Region": "Suburbia"
     },
@@ -1532,7 +1583,8 @@
         "ProductAffinities": {
             "Marijuana": 0.9418721,
             "Methamphetamine": -0.91576767,
-            "Cocaine": -0.3024763
+            "Cocaine": -0.3024763,
+            "Shrooms": 0.04230243
         },
         "Region": "Downtown"
     },
@@ -1572,7 +1624,8 @@
         "ProductAffinities": {
             "Marijuana": 0.6090369,
             "Methamphetamine": -0.249025464,
-            "Cocaine": -0.223008037
+            "Cocaine": -0.223008037,
+            "Shrooms": 0.418809116
         },
         "Region": "Northtown"
     },
@@ -1612,7 +1665,8 @@
         "ProductAffinities": {
             "Marijuana": -0.256221652,
             "Methamphetamine": 0.6726413,
-            "Cocaine": 0.421130866
+            "Cocaine": 0.421130866,
+            "Shrooms": -0.988166153
         },
         "Region": "Docks"
     },
@@ -1636,7 +1690,11 @@
         "MinWeeklySpend": 800.0,
         "OrderTime": 1330,
         "PreferredOrderDay": "Monday",
-        "PreferredProperties": [],
+        "PreferredProperties": [
+            "Toxic",
+            "Sedating",
+            "LongFaced"
+        ],
         "Standards": "High",
         "CurrentAddiction": 0.0,
         "Relationship": 2.0,
@@ -1649,7 +1707,8 @@
         "ProductAffinities": {
             "Marijuana": 0.882,
             "Methamphetamine": -0.591,
-            "Cocaine": 0.281
+            "Cocaine": 0.281,
+            "Shrooms": -0.98152554
         },
         "Region": "Suburbia"
     },
@@ -1689,7 +1748,8 @@
         "ProductAffinities": {
             "Marijuana": 0.55,
             "Methamphetamine": 0.24,
-            "Cocaine": 1.0
+            "Cocaine": 1.0,
+            "Shrooms": 0.6520598
         },
         "Region": "Westville"
     },
@@ -1731,7 +1791,8 @@
         "ProductAffinities": {
             "Marijuana": 0.68,
             "Methamphetamine": 1.0,
-            "Cocaine": 0.02
+            "Cocaine": 0.02,
+            "Shrooms": -0.133040309
         },
         "Region": "Docks"
     },
@@ -1772,7 +1833,8 @@
         "ProductAffinities": {
             "Marijuana": -0.947237968,
             "Methamphetamine": -0.7829964,
-            "Cocaine": -0.6952059
+            "Cocaine": -0.6952059,
+            "Shrooms": -0.880720735
         },
         "Region": "Suburbia"
     },
@@ -1813,7 +1875,8 @@
         "ProductAffinities": {
             "Marijuana": 0.724,
             "Methamphetamine": 0.705,
-            "Cocaine": -0.408
+            "Cocaine": -0.408,
+            "Shrooms": 0.169753373
         },
         "Region": "Northtown"
     },
@@ -1837,7 +1900,11 @@
         "MinWeeklySpend": 800.0,
         "OrderTime": 615,
         "PreferredOrderDay": "Thursday",
-        "PreferredProperties": [],
+        "PreferredProperties": [
+            "Electrifying",
+            "Toxic",
+            "Euphoric"
+        ],
         "Standards": "High",
         "CurrentAddiction": 0.0,
         "Relationship": 2.0,
@@ -1850,7 +1917,8 @@
         "ProductAffinities": {
             "Marijuana": -0.63,
             "Methamphetamine": 0.27,
-            "Cocaine": 1.0
+            "Cocaine": 1.0,
+            "Shrooms": 0.5342338
         },
         "Region": "Suburbia"
     },
@@ -1891,7 +1959,8 @@
         "ProductAffinities": {
             "Marijuana": -0.137092,
             "Methamphetamine": -0.295458436,
-            "Cocaine": -0.4415995
+            "Cocaine": -0.4415995,
+            "Shrooms": -0.7176735
         },
         "Region": "Uptown"
     },
@@ -1932,7 +2001,8 @@
         "ProductAffinities": {
             "Marijuana": 0.646317244,
             "Methamphetamine": -0.7910831,
-            "Cocaine": 0.194690108
+            "Cocaine": 0.194690108,
+            "Shrooms": 0.238586485
         },
         "Region": "Downtown"
     },
@@ -1973,7 +2043,8 @@
         "ProductAffinities": {
             "Marijuana": 0.23,
             "Methamphetamine": -0.64,
-            "Cocaine": 1.0
+            "Cocaine": 1.0,
+            "Shrooms": -0.09245217
         },
         "Region": "Northtown"
     },
@@ -2013,7 +2084,8 @@
         "ProductAffinities": {
             "Marijuana": 1.0,
             "Methamphetamine": -0.86,
-            "Cocaine": 0.51
+            "Cocaine": 0.51,
+            "Shrooms": 0.758933544
         },
         "Region": "Docks"
     },
@@ -2054,7 +2126,8 @@
         "ProductAffinities": {
             "Marijuana": 0.7928281,
             "Methamphetamine": -0.03636539,
-            "Cocaine": 0.721134663
+            "Cocaine": 0.721134663,
+            "Shrooms": -0.664368153
         },
         "Region": "Westville"
     },
@@ -2095,7 +2168,8 @@
         "ProductAffinities": {
             "Marijuana": 1.0,
             "Methamphetamine": 0.59,
-            "Cocaine": -0.64
+            "Cocaine": -0.64,
+            "Shrooms": 0.4504883
         },
         "Region": "Westville"
     },
@@ -2136,7 +2210,8 @@
         "ProductAffinities": {
             "Marijuana": 0.793068647,
             "Methamphetamine": -0.5934601,
-            "Cocaine": -0.679656
+            "Cocaine": -0.679656,
+            "Shrooms": 0.7481522
         },
         "Region": "Northtown"
     },
@@ -2177,7 +2252,8 @@
         "ProductAffinities": {
             "Marijuana": 0.9700911,
             "Methamphetamine": 0.77982235,
-            "Cocaine": -0.219307542
+            "Cocaine": -0.219307542,
+            "Shrooms": 0.385851771
         },
         "Region": "Downtown"
     },
@@ -2211,14 +2287,15 @@
         "Relationship": 2.0,
         "Unlocked": false,
         "Connections": [
-            "Tobas Wentworth",
+            "Tobias Wentworth",
             "Walter Cussler",
-            "Herbert bleuball"
+            "Herbert Bleuball"
         ],
         "ProductAffinities": {
             "Marijuana": 0.8908477,
             "Methamphetamine": -0.8917253,
-            "Cocaine": 0.6696105
+            "Cocaine": 0.6696105,
+            "Shrooms": 0.481825262
         },
         "Region": "Uptown"
     },
@@ -2258,7 +2335,8 @@
         "ProductAffinities": {
             "Marijuana": 0.02564156,
             "Methamphetamine": 0.07780826,
-            "Cocaine": -0.499368548
+            "Cocaine": -0.499368548,
+            "Shrooms": 0.273
         },
         "Region": "Uptown"
     },
@@ -2299,7 +2377,8 @@
         "ProductAffinities": {
             "Marijuana": 0.256949633,
             "Methamphetamine": 0.0763911,
-            "Cocaine": -0.891044855
+            "Cocaine": -0.891044855,
+            "Shrooms": -0.467036
         },
         "Region": "Suburbia"
     },
@@ -2336,7 +2415,8 @@
         "ProductAffinities": {
             "Marijuana": 1.0,
             "Methamphetamine": -0.28,
-            "Cocaine": -0.47
+            "Cocaine": -0.47,
+            "Shrooms": 1.0
         },
         "Region": "Downtown"
     },
@@ -2360,7 +2440,11 @@
         "MinWeeklySpend": 1000.0,
         "OrderTime": 2120,
         "PreferredOrderDay": "Friday",
-        "PreferredProperties": [],
+        "PreferredProperties": [
+            "ThoughtProvoking",
+            "Glowie",
+            "Zombifying"
+        ],
         "Standards": "High",
         "CurrentAddiction": 0.0,
         "Relationship": 2.0,
@@ -2372,7 +2456,8 @@
         "ProductAffinities": {
             "Marijuana": 0.56,
             "Methamphetamine": 0.0,
-            "Cocaine": 1.0
+            "Cocaine": 1.0,
+            "Shrooms": 0.06535137
         },
         "Region": "Uptown"
     },
@@ -2396,7 +2481,11 @@
         "MinWeeklySpend": 1000.0,
         "OrderTime": 630,
         "PreferredOrderDay": "Tuesday",
-        "PreferredProperties": [],
+        "PreferredProperties": [
+            "Shrinking",
+            "Energizing",
+            "Athletic"
+        ],
         "Standards": "High",
         "CurrentAddiction": 0.0,
         "Relationship": 2.0,
@@ -2408,7 +2497,8 @@
         "ProductAffinities": {
             "Marijuana": 0.321,
             "Methamphetamine": -0.404,
-            "Cocaine": 0.842
+            "Cocaine": 0.842,
+            "Shrooms": 0.7593358
         },
         "Region": "Uptown"
     },
@@ -2449,7 +2539,8 @@
         "ProductAffinities": {
             "Marijuana": 0.5765674,
             "Methamphetamine": 0.534507751,
-            "Cocaine": 0.832950354
+            "Cocaine": 0.832950354,
+            "Shrooms": -0.887874067
         },
         "Region": "Suburbia"
     },
@@ -2489,7 +2580,8 @@
         "ProductAffinities": {
             "Marijuana": 0.460892648,
             "Methamphetamine": 0.157269835,
-            "Cocaine": 0.5780153
+            "Cocaine": 0.5780153,
+            "Shrooms": 0.749
         },
         "Region": "Westville"
     }

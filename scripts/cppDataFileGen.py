@@ -5,6 +5,7 @@ from scripts.pyLib import (
     MixData,
     BaseData,
     ItemData,
+    CustomerData,
 )
 
 # os.system("which python")
@@ -87,11 +88,15 @@ EffectAddictionStr = (
     "{" + ",".join([str(round(addict, 3)) for addict in EffectAddiction]) + "}"
 )
 EffectNamesStr = "{" + ",".join([f'"{effect}"' for effect in EffectNames]) + "}"
+EffectEnumStr = ",\n".join(
+    [f'\t{name.upper().replace(" ","_").replace("-","_")}' for name in EffectNames]
+)
 
 
 template = template.replace(r"$EFFECT_MODIFIERS$", EffectModifiersStr)
 template = template.replace(r"$EFFECT_ADDICTION$", EffectAddictionStr)
 template = template.replace(r"$EFFECT_NAMES$", EffectNamesStr)
+template = template.replace(r"$EFFECT_ENUM$", EffectEnumStr)
 
 # what the base sells for with effects changing it
 BasePrices = []
@@ -117,12 +122,16 @@ BaseBaseEffectsStr = (
     "{" + ",".join([formatAsEffectSet(effect) for effect in BaseBaseEffects]) + "}"
 )
 BaseNamesStr = "{" + ",".join([f'"{name}"' for name in BaseNames]) + "}"
+BaseEnumStr = ",\n".join(
+    [f'\t{name.upper().replace(" ","_").replace("-","_")}' for name in BaseNames]
+)
 
 
 template = template.replace(r"$BASE_PRICES$", BasePricesStr)
 template = template.replace(r"$BASE_COSTS$", BaseCostsStr)
 template = template.replace(r"$BASE_EFFECTS$", BaseBaseEffectsStr)
 template = template.replace(r"$BASE_NAMES$", BaseNamesStr)
+template = template.replace(r"$BASE_ENUM$", BaseEnumStr)
 
 
 ItemPrices = []
@@ -159,13 +168,23 @@ ItemEffectReplaceMapStr = (
     + "}"
 )
 ItemNamesStr = "{" + ",".join([f'"{name}"' for name in ItemNames]) + "}"
-
+ItemEnumStr = ",\n".join(
+    [f'\t{name.upper().replace(" ","_").replace("-","_")}' for name in ItemNames]
+)
 
 template = template.replace(r"$ITEM_PRICES$", ItemPricesStr)
 template = template.replace(r"$ITEM_EFFECTS$", ItemEffectsStr)
 template = template.replace(r"$ITEM_EFFECT_REPLACE_MASK$", ItemEffectReplaceMaskStr)
 template = template.replace(r"$ITEM_EFFECT_REPLACE_MAP$", ItemEffectReplaceMapStr)
 template = template.replace(r"$ITEM_NAMES$", ItemNamesStr)
+template = template.replace(r"$ITEM_ENUM$", ItemEnumStr)
+
+
+
+CustomerNamesEnum = ",\n".join(
+    [f'\t{name["fullName"].upper().replace(" ","_").replace("-","_").replace(".","")}' for name in CustomerData]
+)
+template = template.replace(r"$CUSTOMER_ENUM$", CustomerNamesEnum)
 
 
 with open(pathPrefix + "./dataFile/dataFile.hpp", "w") as f:

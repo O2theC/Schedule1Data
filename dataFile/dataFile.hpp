@@ -9,11 +9,11 @@
 #include <boost/container/small_vector.hpp>
 
 #define EFFECT_AMT 35
-#define BASE_AMT 6
+#define BASE_AMT 7
 #define ITEM_AMT 16
 #define MAX_ITEM_EFFECT_CHANGERS 11
 #define SCALER 100
-#define GAME_VERSION "v0.4.0-beta"
+#define GAME_VERSION "v0.3.6f6"
 
 constexpr uint8_t EFFECTS_BYTES = std::ceil(EFFECT_AMT / 8.0);
 constexpr uint8_t BASES_BYTES = std::ceil(std::log2(BASE_AMT) / 8.0);
@@ -538,14 +538,14 @@ void mixItem(EffectSet &effects, const uint8_t itemId);
 
 const std::string EFFECTNAMES[] = {"Calming","Euphoric","Focused","Munchies","Paranoia","Refreshing","Smelly","Calorie-Dense","Disorienting","Energizing","Gingeritis","Sedating","Sneaky","Toxic","Athletic","Balding","Foggy","Laxative","Seizure-Inducing","Slippery","Spicy","Bright-Eyed","Glowing","Jennerising","Lethal","Schizophrenic","Thought-Provoking","Tropic Thunder","Anti-gravity","Cyclopean","Electrifying","Explosive","Long faced","Shrinking","Zombifying"};
 
-constexpr uint16_t BASE_PRICES[] = {35,35,35,35,70,150};
+constexpr uint16_t BASE_PRICES[] = {35,35,35,35,70,150,65};
 
 constexpr uint16_t BASE_COSTS[] = {375,438,500,562,1900,3383};
 
 // the base effects that each base has
-constexpr EffectSet BASE_BASE_EFFECTS[] = {EffectSet((uint64_t)1),EffectSet((uint64_t)32),EffectSet((uint64_t)512),EffectSet((uint64_t)2048),EffectSet((uint64_t)0),EffectSet((uint64_t)0)};
+constexpr EffectSet BASE_BASE_EFFECTS[] = {EffectSet((uint64_t)1),EffectSet((uint64_t)32),EffectSet((uint64_t)512),EffectSet((uint64_t)2048),EffectSet((uint64_t)0),EffectSet((uint64_t)0),EffectSet((uint64_t)0)};
 
-const std::string BASE_NAMES[] = {"OG Kush","Sour Diesel","Green Crack","Granddaddy Purple","Meth","Cocaine"};
+const std::string BASE_NAMES[] = {"OG Kush","Sour Diesel","Green Crack","Granddaddy Purple","Meth","Cocaine","Shroom"};
 
 constexpr uint16_t ITEM_PRICES[] = {900,200,800,700,200,300,600,500,500,900,800,700,600,400,300,400}; // these are 10x to add 2 places of fixed decimals
 
@@ -769,3 +769,136 @@ constexpr size_t itemLookupByName(string itemName)
 }
 
 uint64_t pow(uint64_t base, uint64_t power);
+
+enum Bases {
+	OG_KUSH,
+	SOUR_DIESEL,
+	GREEN_CRACK,
+	GRANDDADDY_PURPLE,
+	METH,
+	COCAINE,
+	SHROOM
+};
+
+enum Items {
+	ADDY,
+	BANANA,
+	BATTERY,
+	CHILI,
+	CUKE,
+	DONUT,
+	ENERGY_DRINK,
+	FLU_MEDICINE,
+	GASOLINE,
+	HORSE_SEMEN,
+	IODINE,
+	MEGA_BEAN,
+	MOTOR_OIL,
+	MOUTH_WASH,
+	PARACETAMOL,
+	VIAGOR
+};
+
+
+enum EFFECTS {
+	CALMING,
+	EUPHORIC,
+	FOCUSED,
+	MUNCHIES,
+	PARANOIA,
+	REFRESHING,
+	SMELLY,
+	CALORIE_DENSE,
+	DISORIENTING,
+	ENERGIZING,
+	GINGERITIS,
+	SEDATING,
+	SNEAKY,
+	TOXIC,
+	ATHLETIC,
+	BALDING,
+	FOGGY,
+	LAXATIVE,
+	SEIZURE_INDUCING,
+	SLIPPERY,
+	SPICY,
+	BRIGHT_EYED,
+	GLOWING,
+	JENNERISING,
+	LETHAL,
+	SCHIZOPHRENIC,
+	THOUGHT_PROVOKING,
+	TROPIC_THUNDER,
+	ANTI_GRAVITY,
+	CYCLOPEAN,
+	ELECTRIFYING,
+	EXPLOSIVE,
+	LONG_FACED,
+	SHRINKING,
+	ZOMBIFYING
+};
+
+enum CUSTOMERS {
+	JESSI_WATERS,
+	DONNA_MARTIN,
+	JACK_KNIGHT,
+	GERALDINE_POON,
+	KEITH_WAGNER,
+	KEVIN_OAKLEY,
+	BILLY_KRAMER,
+	MARCO_BARONE,
+	KATHY_HENDERSON,
+	BETH_PENN,
+	TOBIAS_WENTWORTH,
+	KIM_DELANEY,
+	LISA_GARDENER,
+	EUGENE_BUCKLEY,
+	KAREN_KENNEDY,
+	TRENT_SHERMAN,
+	JEN_HEARD,
+	MICHAEL_BOOG,
+	DEAN_WEBSTER,
+	ELIZABETH_HOMLEY,
+	HERBERT_BLEUBALL,
+	MICK_LUBBIN,
+	GENGHIS_BARN,
+	CHLOE_BOWERS,
+	MAC_COOPER,
+	SAM_THOMPSON,
+	JERRY_MONTERO,
+	GREG_FIGGLE,
+	JEFF_GILMORE,
+	GEORGE_GREENE,
+	JAVIER_PÉREZ,
+	CHRIS_SULLIVAN,
+	CARL_BUNDY,
+	PETER_FILE,
+	JENNIFER_RIVERA,
+	AUSTIN_STEINER,
+	HANK_STEVENSON,
+	LOUIS_FOURIER,
+	MRS_MING,
+	MELISSA_WOOD,
+	JACKIE_STEVENSON,
+	CHARLES_ROWLAND,
+	CRANKY_FRANK,
+	HAROLD_COLT,
+	KYLE_COOLEY,
+	ALISON_KNIGHT,
+	WALTER_CUSSLER,
+	LUCY_PENNINGTON,
+	PEGGY_MYERS,
+	ANNA_CHESTERFIELD,
+	MEG_COOLEY,
+	JOYCE_BALL,
+	LUDWIG_MEYER,
+	PHILIP_WENTWORTH,
+	PEARL_MOORE,
+	FIONA_HANCOCK,
+	DENNIS_KENNEDY,
+	RANDY_CAULFIELD,
+	RAY_HOFFMAN,
+	LILY_TURNER,
+	JEREMY_WILKINSON,
+	DORIS_LUBBIN
+};
