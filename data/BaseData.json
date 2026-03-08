@@ -7,7 +7,7 @@
             "Calming"
         ],
         "drugType": "Marijuana",
-        "price": 38.0,
+        "price": 61.0,
         "description": "Old school OG Kush. Offers a balanced, relaxing high with subtle physical effects.",
         "legalStatus": "LowSeverityDrug",
         "inDemo": true,
@@ -22,7 +22,7 @@
             "Refreshing"
         ],
         "drugType": "Marijuana",
-        "price": 40.0,
+        "price": 58.0,
         "description": "An uplifting yet easy-going strain with mild cerebral effects.",
         "legalStatus": "LowSeverityDrug",
         "inDemo": true,
@@ -37,7 +37,7 @@
             "Energizing"
         ],
         "drugType": "Marijuana",
-        "price": 49.0,
+        "price": 62.0,
         "description": "A potent, highly energizing strain that leaves you with a focussed buzz.",
         "legalStatus": "LowSeverityDrug",
         "inDemo": true,
@@ -52,7 +52,7 @@
             "Sedating"
         ],
         "drugType": "Marijuana",
-        "price": 44.0,
+        "price": 69.0,
         "description": "A potent classic with intense sedating and euphoric effects.",
         "legalStatus": "LowSeverityDrug",
         "inDemo": true,

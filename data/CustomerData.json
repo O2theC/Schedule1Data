@@ -17,7 +17,7 @@
         "MinMutualRelationRequirement": 2.0,
         "MinOrdersPerWeek": 7,
         "MinWeeklySpend": 200.0,
-        "OrderTime": 2230,
+        "OrderTime": 2300,
         "PreferredOrderDay": "Thursday",
         "PreferredProperties": [
             "Energizing",
@@ -25,8 +25,8 @@
             "Sneaky"
         ],
         "Standards": "VeryLow",
-        "CurrentAddiction": 0.4,
-        "Relationship": 3.0,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
         "Unlocked": true,
         "Connections": [
             "Kyle Cooley",
@@ -34,7 +34,7 @@
             "Sam Thompson"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.0,
+            "Marijuana": 1.0,
             "Methamphetamine": 1.0,
             "Cocaine": -0.27,
             "Shrooms": 0.5488758
@@ -67,15 +67,15 @@
             "Munchies"
         ],
         "Standards": "Low",
-        "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
+        "Unlocked": true,
         "Connections": [
             "Peggy Myers",
             "Kathy Henderson"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.9272344,
+            "Marijuana": 1.0,
             "Methamphetamine": -0.273790479,
             "Cocaine": 0.25126,
             "Shrooms": 0.320330948
@@ -100,7 +100,7 @@
         "MinMutualRelationRequirement": 3.0,
         "MinOrdersPerWeek": 1,
         "MinWeeklySpend": 800.0,
-        "OrderTime": 1515,
+        "OrderTime": 1530,
         "PreferredOrderDay": "Tuesday",
         "PreferredProperties": [
             "Shrinking",
@@ -149,9 +149,9 @@
             "Sedating"
         ],
         "Standards": "VeryLow",
-        "CurrentAddiction": 0.1,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
+        "Unlocked": true,
         "Connections": [
             "Peggy Myers",
             "Mick Lubbin",
@@ -191,16 +191,16 @@
             "TropicThunder"
         ],
         "Standards": "VeryLow",
-        "CurrentAddiction": 0.6,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
+        "Unlocked": true,
         "Connections": [
             "Jerry Montero",
             "Joyce Ball",
             "Meg Cooley"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.0,
+            "Marijuana": 1.0,
             "Methamphetamine": 1.0,
             "Cocaine": 0.21,
             "Shrooms": 0.1469506
@@ -233,16 +233,16 @@
             "Calming"
         ],
         "Standards": "Moderate",
-        "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
+        "Unlocked": true,
         "Connections": [
             "Randy Caulfield",
             "Louis Fourier",
             "Fungal Phil"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.724,
+            "Marijuana": 1.0,
             "Methamphetamine": -0.512,
             "Cocaine": 0.616,
             "Shrooms": -0.809982657
@@ -276,11 +276,12 @@
         ],
         "Standards": "Moderate",
         "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
+        "Relationship": 2.25,
         "Unlocked": false,
         "Connections": [
             "Jane Lucero",
-            "Mac Cooper"
+            "Mac Cooper",
+            "Sherman Giles"
         ],
         "ProductAffinities": {
             "Marijuana": 0.08743894,
@@ -316,16 +317,17 @@
             "Refreshing"
         ],
         "Standards": "Moderate",
-        "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 0.475000024,
+        "Relationship": 3.5,
+        "Unlocked": true,
         "Connections": [
             "Javier Pérez",
             "Mac Cooper",
-            "Cranky Frank"
+            "Cranky Frank",
+            "Sherman Giles"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.33875367,
+            "Marijuana": 0.7887536,
             "Methamphetamine": 0.08089006,
             "Cocaine": 0.541657,
             "Shrooms": -0.9263918
@@ -358,8 +360,8 @@
             "Focused"
         ],
         "Standards": "Low",
-        "CurrentAddiction": 0.0,
-        "Relationship": 3.0,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
         "Unlocked": true,
         "Connections": [
             "Geraldine Poon",
@@ -367,7 +369,7 @@
             "Donna Martin"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.55,
+            "Marijuana": 1.0,
             "Methamphetamine": 0.27,
             "Cocaine": -0.61,
             "Shrooms": -0.8021266
@@ -400,16 +402,16 @@
             "Seizure"
         ],
         "Standards": "Low",
-        "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
+        "Unlocked": true,
         "Connections": [
             "Benji Coleman",
             "Peggy Myers",
             "Mrs. Ming"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.3024659,
+            "Marijuana": 1.0,
             "Methamphetamine": 0.308408469,
             "Cocaine": -0.196892142,
             "Shrooms": 0.128822133
@@ -435,7 +437,7 @@
         "MinOrdersPerWeek": 1,
         "MinWeeklySpend": 1000.0,
         "OrderTime": 1545,
-        "PreferredOrderDay": "Wednesday",
+        "PreferredOrderDay": "Saturday",
         "PreferredProperties": [
             "Lethal",
             "Disorienting",
@@ -484,16 +486,16 @@
             "Focused"
         ],
         "Standards": "Low",
-        "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
+        "Unlocked": true,
         "Connections": [
             "Charles Rowland",
             "Jerry Montero",
             "Doris Lubbin"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.73,
+            "Marijuana": 1.0,
             "Methamphetamine": -0.57,
             "Cocaine": 0.86,
             "Shrooms": -0.630510569
@@ -518,7 +520,7 @@
         "MinMutualRelationRequirement": 3.0,
         "MinOrdersPerWeek": 1,
         "MinWeeklySpend": 600.0,
-        "OrderTime": 1145,
+        "OrderTime": 1150,
         "PreferredOrderDay": "Saturday",
         "PreferredProperties": [
             "Laxative",
@@ -528,10 +530,11 @@
         "Standards": "Moderate",
         "CurrentAddiction": 0.0,
         "Relationship": 2.0,
-        "Unlocked": false,
+        "Unlocked": true,
         "Connections": [
             "Javier Pérez",
-            "Anna Chesterfield"
+            "Anna Chesterfield",
+            "Kelly Reynolds"
         ],
         "ProductAffinities": {
             "Marijuana": -0.8211582,
@@ -559,7 +562,7 @@
         "MinMutualRelationRequirement": 3.0,
         "MinOrdersPerWeek": 1,
         "MinWeeklySpend": 400.0,
-        "OrderTime": 1345,
+        "OrderTime": 1350,
         "PreferredOrderDay": "Monday",
         "PreferredProperties": [
             "Schizophrenic",
@@ -567,9 +570,9 @@
             "Calming"
         ],
         "Standards": "Moderate",
-        "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
+        "Unlocked": true,
         "Connections": [
             "Brad Crosby",
             "Greg Figgle",
@@ -578,7 +581,7 @@
             "Lucy Pennington"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.661835432,
+            "Marijuana": 1.0,
             "Methamphetamine": 0.109853625,
             "Cocaine": 0.166464686,
             "Shrooms": 0.10216096
@@ -603,7 +606,7 @@
         "MinMutualRelationRequirement": 2.0,
         "MinOrdersPerWeek": 3,
         "MinWeeklySpend": 800.0,
-        "OrderTime": 1600,
+        "OrderTime": 1610,
         "PreferredOrderDay": "Saturday",
         "PreferredProperties": [
             "TropicThunder",
@@ -653,15 +656,15 @@
             "CalorieDense"
         ],
         "Standards": "Low",
-        "CurrentAddiction": 0.25,
-        "Relationship": 2.0,
+        "CurrentAddiction": 0.875,
+        "Relationship": 5.0,
         "Unlocked": true,
         "Connections": [
             "Meg Cooley",
             "Joyce Ball"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.679,
+            "Marijuana": 1.0,
             "Methamphetamine": 0.226,
             "Cocaine": 0.902,
             "Shrooms": 0.281107754
@@ -686,7 +689,7 @@
         "MinMutualRelationRequirement": 2.0,
         "MinOrdersPerWeek": 3,
         "MinWeeklySpend": 1000.0,
-        "OrderTime": 2250,
+        "OrderTime": 2320,
         "PreferredOrderDay": "Friday",
         "PreferredProperties": [
             "Disorienting",
@@ -742,7 +745,8 @@
         "Unlocked": false,
         "Connections": [
             "Tobias Wentworth",
-            "Leo Rivers"
+            "Leo Rivers",
+            "Irene Meadows"
         ],
         "ProductAffinities": {
             "Marijuana": 0.170571446,
@@ -778,15 +782,15 @@
             "Spicy"
         ],
         "Standards": "Low",
-        "CurrentAddiction": 0.3,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
+        "Unlocked": true,
         "Connections": [
             "George Greene",
             "Jerry Montero"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.508,
+            "Marijuana": 1.0,
             "Methamphetamine": 1.0,
             "Cocaine": 0.0,
             "Shrooms": -0.07805717
@@ -811,7 +815,7 @@
         "MinMutualRelationRequirement": 3.0,
         "MinOrdersPerWeek": 1,
         "MinWeeklySpend": 400.0,
-        "OrderTime": 1015,
+        "OrderTime": 1020,
         "PreferredOrderDay": "Wednesday",
         "PreferredProperties": [
             "Sedating",
@@ -819,16 +823,16 @@
             "Toxic"
         ],
         "Standards": "Moderate",
-        "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
+        "Unlocked": true,
         "Connections": [
             "Louis Fourier",
             "Jennifer Rivera",
             "Fungal Phil"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.326129645,
+            "Marijuana": 1.0,
             "Methamphetamine": 0.447354048,
             "Cocaine": 0.3176529,
             "Shrooms": -0.400863439
@@ -903,15 +907,15 @@
             "Sneaky"
         ],
         "Standards": "Low",
-        "CurrentAddiction": 0.0,
-        "Relationship": 3.0,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
         "Unlocked": true,
         "Connections": [
             "Geraldine Poon",
             "Sam Thompson"
         ],
         "ProductAffinities": {
-            "Marijuana": -0.73,
+            "Marijuana": 1.0,
             "Methamphetamine": 0.88,
             "Cocaine": 0.37,
             "Shrooms": -0.0823552
@@ -936,8 +940,8 @@
         "MinMutualRelationRequirement": 3.0,
         "MinOrdersPerWeek": 1,
         "MinWeeklySpend": 600.0,
-        "OrderTime": 1345,
-        "PreferredOrderDay": "Monday",
+        "OrderTime": 105,
+        "PreferredOrderDay": "Thursday",
         "PreferredProperties": [
             "Electrifying",
             "Gingeritis",
@@ -985,15 +989,15 @@
             "Munchies"
         ],
         "Standards": "Low",
-        "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
+        "Unlocked": true,
         "Connections": [
             "Benji Coleman",
             "Sam Thompson"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.44398877,
+            "Marijuana": 1.0,
             "Methamphetamine": 0.7921531,
             "Cocaine": 0.249738812,
             "Shrooms": 0.169000059
@@ -1019,23 +1023,23 @@
         "MinOrdersPerWeek": 1,
         "MinWeeklySpend": 600.0,
         "OrderTime": 1645,
-        "PreferredOrderDay": "Monday",
+        "PreferredOrderDay": "Thursday",
         "PreferredProperties": [
             "Focused",
             "Spicy",
             "LongFaced"
         ],
         "Standards": "Moderate",
-        "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 0.475000024,
+        "Relationship": 3.5,
+        "Unlocked": true,
         "Connections": [
             "Salvador Moreno",
             "Billy Kramer",
             "Marco Barone"
         ],
         "ProductAffinities": {
-            "Marijuana": -0.571240664,
+            "Marijuana": -0.121240646,
             "Methamphetamine": -0.383299947,
             "Cocaine": 0.268096179,
             "Shrooms": -0.7960152
@@ -1060,7 +1064,7 @@
         "MinMutualRelationRequirement": 3.0,
         "MinOrdersPerWeek": 6,
         "MinWeeklySpend": 200.0,
-        "OrderTime": 1330,
+        "OrderTime": 1250,
         "PreferredOrderDay": "Saturday",
         "PreferredProperties": [
             "Munchies",
@@ -1068,8 +1072,8 @@
             "Smelly"
         ],
         "Standards": "Low",
-        "CurrentAddiction": 0.0,
-        "Relationship": 3.0,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
         "Unlocked": true,
         "Connections": [
             "Mick Lubbin",
@@ -1079,7 +1083,7 @@
             "Albert Hoover"
         ],
         "ProductAffinities": {
-            "Marijuana": -0.755561352,
+            "Marijuana": 1.0,
             "Methamphetamine": 0.299590319,
             "Cocaine": -0.802351952,
             "Shrooms": -0.5229913
@@ -1112,9 +1116,9 @@
             "ThoughtProvoking"
         ],
         "Standards": "Low",
-        "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
+        "Unlocked": true,
         "Connections": [
             "Kim Delaney",
             "Keith Wagner",
@@ -1123,7 +1127,7 @@
             "Dean Webster"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.34,
+            "Marijuana": 1.0,
             "Methamphetamine": 0.0,
             "Cocaine": 0.61,
             "Shrooms": 0.944
@@ -1156,16 +1160,16 @@
             "Toxic"
         ],
         "Standards": "VeryLow",
-        "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
+        "Unlocked": true,
         "Connections": [
             "Eugene Buckley",
             "Brad Crosby",
             "Jeff Gilmore"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.5778086,
+            "Marijuana": 1.0,
             "Methamphetamine": -0.5788088,
             "Cocaine": -0.3489071,
             "Shrooms": -0.911964357
@@ -1198,16 +1202,17 @@
             "Laxative"
         ],
         "Standards": "Moderate",
-        "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
+        "Unlocked": true,
         "Connections": [
             "Philip Wentworth",
             "Randy Caulfield",
-            "Greg Figgle"
+            "Greg Figgle",
+            "Bruce Norton"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.75,
+            "Marijuana": 1.0,
             "Methamphetamine": -0.84,
             "Cocaine": -0.31,
             "Shrooms": 0.889
@@ -1240,15 +1245,15 @@
             "ThoughtProvoking"
         ],
         "Standards": "Low",
-        "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
+        "Unlocked": true,
         "Connections": [
             "Molly Presley",
             "Dean Webster"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.9,
+            "Marijuana": 1.0,
             "Methamphetamine": 0.37,
             "Cocaine": -0.15,
             "Shrooms": -0.369486839
@@ -1273,7 +1278,7 @@
         "MinMutualRelationRequirement": 2.0,
         "MinOrdersPerWeek": 0,
         "MinWeeklySpend": 600.0,
-        "OrderTime": 1630,
+        "OrderTime": 1830,
         "PreferredOrderDay": "Tuesday",
         "PreferredProperties": [
             "Cyclopean",
@@ -1281,9 +1286,9 @@
             "BrightEyed"
         ],
         "Standards": "Moderate",
-        "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 0.5375,
+        "Relationship": 3.5,
+        "Unlocked": true,
         "Connections": [
             "Salvador Moreno",
             "Genghis Barn",
@@ -1291,7 +1296,7 @@
             "Marco Barone"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.72,
+            "Marijuana": 1.0,
             "Methamphetamine": -0.3,
             "Cocaine": 0.45,
             "Shrooms": 0.658310652
@@ -1316,7 +1321,7 @@
         "MinMutualRelationRequirement": 3.0,
         "MinOrdersPerWeek": 1,
         "MinWeeklySpend": 800.0,
-        "OrderTime": 1015,
+        "OrderTime": 1010,
         "PreferredOrderDay": "Wednesday",
         "PreferredProperties": [
             "Sneaky",
@@ -1326,7 +1331,7 @@
         "Standards": "High",
         "CurrentAddiction": 0.0,
         "Relationship": 2.0,
-        "Unlocked": true,
+        "Unlocked": false,
         "Connections": [
             "Karen Kennedy",
             "Alison Knight"
@@ -1358,7 +1363,7 @@
         "MinOrdersPerWeek": 1,
         "MinWeeklySpend": 800.0,
         "OrderTime": 1900,
-        "PreferredOrderDay": "Wednesday",
+        "PreferredOrderDay": "Tuesday",
         "PreferredProperties": [
             "Glowie",
             "Athletic",
@@ -1382,6 +1387,50 @@
         "Region": "Suburbia"
     },
     {
+        "fullName": "Sherman Giles",
+        "name": "Sherman",
+        "FirstName": "Sherman",
+        "LastName": "Giles",
+        "ID": "sherman_giles",
+        "GUID": "fbac92e8-255d-4af8-9b97-ca30f811816f",
+        "BaseAddiction": 0.0,
+        "CallPoliceChance": 0.317,
+        "CanBeDirectlyApproached": true,
+        "DependenceMultiplier": 1.0,
+        "GuaranteeFirstSampleSuccess": false,
+        "MaxMutualRelationRequirement": 5.0,
+        "MaxOrdersPerWeek": 5,
+        "MaxWeeklySpend": 1000.0,
+        "MinMutualRelationRequirement": 3.0,
+        "MinOrdersPerWeek": 1,
+        "MinWeeklySpend": 600.0,
+        "OrderTime": 2045,
+        "PreferredOrderDay": "Friday",
+        "PreferredProperties": [
+            "Explosive",
+            "Paranoia",
+            "BrightEyed"
+        ],
+        "Standards": "Moderate",
+        "CurrentAddiction": 0.0,
+        "Relationship": 2.0,
+        "Unlocked": false,
+        "Connections": [
+            "Marco Barone",
+            "Billy Kramer",
+            "Melissa Wood"
+        ],
+        "ProductAffinities": {
+            "Marijuana": 0.354571074,
+            "Methamphetamine": -0.678818,
+            "Cocaine": -0.635914564,
+            "MDMA": 0.3648686,
+            "Shrooms": 1.0,
+            "Heroin": 0.77
+        },
+        "Region": "Docks"
+    },
+    {
         "fullName": "Peter File",
         "name": "Peter",
         "FirstName": "Peter",
@@ -1399,7 +1448,7 @@
         "MinMutualRelationRequirement": 2.0,
         "MinOrdersPerWeek": 3,
         "MinWeeklySpend": 400.0,
-        "OrderTime": 1100,
+        "OrderTime": 1050,
         "PreferredOrderDay": "Wednesday",
         "PreferredProperties": [
             "Focused",
@@ -1407,9 +1456,9 @@
             "Sneaky"
         ],
         "Standards": "Low",
-        "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
+        "Unlocked": true,
         "Connections": [
             "Ludwig Meyer",
             "Sam Thompson"
@@ -1440,7 +1489,7 @@
         "MinMutualRelationRequirement": 3.0,
         "MinOrdersPerWeek": 1,
         "MinWeeklySpend": 400.0,
-        "OrderTime": 1415,
+        "OrderTime": 1430,
         "PreferredOrderDay": "Thursday",
         "PreferredProperties": [
             "Shrinking",
@@ -1448,15 +1497,15 @@
             "Toxic"
         ],
         "Standards": "Moderate",
-        "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
         "Unlocked": true,
         "Connections": [
             "Elizabeth Homley",
             "Lucy Pennington"
         ],
         "ProductAffinities": {
-            "Marijuana": -0.876006842,
+            "Marijuana": 1.0,
             "Methamphetamine": 0.41825363,
             "Cocaine": 0.6501095,
             "Shrooms": -0.9367663
@@ -1489,8 +1538,8 @@
             "Munchies"
         ],
         "Standards": "Low",
-        "CurrentAddiction": 0.2,
-        "Relationship": 3.0,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
         "Unlocked": true,
         "Connections": [
             "Kathy Henderson",
@@ -1498,7 +1547,7 @@
             "Albert Hoover"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.78,
+            "Marijuana": 1.0,
             "Methamphetamine": -0.66,
             "Cocaine": 0.15,
             "Shrooms": 0.3931125
@@ -1523,8 +1572,8 @@
         "MinMutualRelationRequirement": 3.0,
         "MinOrdersPerWeek": 1,
         "MinWeeklySpend": 800.0,
-        "OrderTime": 1330,
-        "PreferredOrderDay": "Wednesday",
+        "OrderTime": 1315,
+        "PreferredOrderDay": "Tuesday",
         "PreferredProperties": [
             "Sneaky",
             "Toxic",
@@ -1572,16 +1621,16 @@
             "Paranoia"
         ],
         "Standards": "Moderate",
-        "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
+        "Unlocked": true,
         "Connections": [
             "Kevin Oakley",
             "Eugene Buckley",
             "Elizabeth Homley"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.9418721,
+            "Marijuana": 1.0,
             "Methamphetamine": -0.91576767,
             "Cocaine": -0.3024763,
             "Shrooms": 0.04230243
@@ -1614,15 +1663,15 @@
             "Electrifying"
         ],
         "Standards": "Low",
-        "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
+        "Unlocked": true,
         "Connections": [
             "Beth Penn",
             "Ludwig Meyer"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.6090369,
+            "Marijuana": 1.0,
             "Methamphetamine": -0.249025464,
             "Cocaine": -0.223008037,
             "Shrooms": 0.418809116
@@ -1660,7 +1709,8 @@
         "Unlocked": false,
         "Connections": [
             "Jane Lucero",
-            "Cranky Frank"
+            "Cranky Frank",
+            "Sherman Giles"
         ],
         "ProductAffinities": {
             "Marijuana": -0.256221652,
@@ -1688,7 +1738,7 @@
         "MinMutualRelationRequirement": 2.0,
         "MinOrdersPerWeek": 3,
         "MinWeeklySpend": 800.0,
-        "OrderTime": 1330,
+        "OrderTime": 1300,
         "PreferredOrderDay": "Monday",
         "PreferredProperties": [
             "Toxic",
@@ -1754,6 +1804,49 @@
         "Region": "Westville"
     },
     {
+        "fullName": "Kelly Reynolds",
+        "name": "Kelly",
+        "FirstName": "Kelly",
+        "LastName": "Reynolds",
+        "ID": "kelly_reynolds",
+        "GUID": "cf5b1fe1-635b-4035-8a86-5f893ff83d70",
+        "BaseAddiction": 0.0,
+        "CallPoliceChance": 0.5,
+        "CanBeDirectlyApproached": true,
+        "DependenceMultiplier": 1.0,
+        "GuaranteeFirstSampleSuccess": false,
+        "MaxMutualRelationRequirement": 5.0,
+        "MaxOrdersPerWeek": 5,
+        "MaxWeeklySpend": 1000.0,
+        "MinMutualRelationRequirement": 3.0,
+        "MinOrdersPerWeek": 1,
+        "MinWeeklySpend": 600.0,
+        "OrderTime": 1600,
+        "PreferredOrderDay": "Sunday",
+        "PreferredProperties": [
+            "ThoughtProvoking",
+            "Smelly",
+            "Zombifying"
+        ],
+        "Standards": "Moderate",
+        "CurrentAddiction": 0.0,
+        "Relationship": 2.0,
+        "Unlocked": false,
+        "Connections": [
+            "Lisa Gardener",
+            "Salvador Moreno"
+        ],
+        "ProductAffinities": {
+            "Marijuana": 0.38,
+            "Methamphetamine": -0.07241142,
+            "Cocaine": 0.246289372,
+            "MDMA": 0.51,
+            "Shrooms": 1.0,
+            "Heroin": -0.3219527
+        },
+        "Region": "Docks"
+    },
+    {
         "fullName": "Cranky Frank",
         "name": "Frank",
         "FirstName": "Cranky Frank",
@@ -1779,9 +1872,9 @@
             "TropicThunder"
         ],
         "Standards": "Moderate",
-        "CurrentAddiction": 0.4,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
+        "Unlocked": true,
         "Connections": [
             "Genghis Barn",
             "Marco Barone",
@@ -1789,7 +1882,7 @@
             "Anna Chesterfield"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.68,
+            "Marijuana": 1.0,
             "Methamphetamine": 1.0,
             "Cocaine": 0.02,
             "Shrooms": -0.133040309
@@ -1815,7 +1908,7 @@
         "MinOrdersPerWeek": 1,
         "MinWeeklySpend": 800.0,
         "OrderTime": 1130,
-        "PreferredOrderDay": "Monday",
+        "PreferredOrderDay": "Thursday",
         "PreferredProperties": [
             "Foggy",
             "Spicy",
@@ -1864,8 +1957,8 @@
             "Smelly"
         ],
         "Standards": "Low",
-        "CurrentAddiction": 0.1,
-        "Relationship": 3.0,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
         "Unlocked": true,
         "Connections": [
             "Austin Steiner",
@@ -1873,7 +1966,7 @@
             "Jessi Waters"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.724,
+            "Marijuana": 1.0,
             "Methamphetamine": 0.705,
             "Cocaine": -0.408,
             "Shrooms": 0.169753373
@@ -1982,7 +2075,7 @@
         "MinMutualRelationRequirement": 3.0,
         "MinOrdersPerWeek": 1,
         "MinWeeklySpend": 400.0,
-        "OrderTime": 1345,
+        "OrderTime": 1400,
         "PreferredOrderDay": "Friday",
         "PreferredProperties": [
             "CalorieDense",
@@ -1990,16 +2083,16 @@
             "Glowie"
         ],
         "Standards": "Moderate",
-        "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
+        "Unlocked": true,
         "Connections": [
             "Eugene Buckley",
             "Philip Wentworth",
             "Jennifer Rivera"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.646317244,
+            "Marijuana": 1.0,
             "Methamphetamine": -0.7910831,
             "Cocaine": 0.194690108,
             "Shrooms": 0.238586485
@@ -2024,7 +2117,7 @@
         "MinMutualRelationRequirement": 2.0,
         "MinOrdersPerWeek": 3,
         "MinWeeklySpend": 400.0,
-        "OrderTime": 1545,
+        "OrderTime": 1730,
         "PreferredOrderDay": "Sunday",
         "PreferredProperties": [
             "BrightEyed",
@@ -2032,16 +2125,16 @@
             "Energizing"
         ],
         "Standards": "Low",
-        "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
+        "Unlocked": true,
         "Connections": [
             "Beth Penn",
             "Donna Martin",
             "Geraldine Poon"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.23,
+            "Marijuana": 1.0,
             "Methamphetamine": -0.64,
             "Cocaine": 1.0,
             "Shrooms": -0.09245217
@@ -2074,8 +2167,8 @@
             "Euphoric"
         ],
         "Standards": "Moderate",
-        "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
         "Unlocked": true,
         "Connections": [
             "Lisa Gardener",
@@ -2088,6 +2181,49 @@
             "Shrooms": 0.758933544
         },
         "Region": "Docks"
+    },
+    {
+        "fullName": "Irene Meadows",
+        "name": "Irene",
+        "FirstName": "Irene",
+        "LastName": "Meadows",
+        "ID": "irene_meadows",
+        "GUID": "ddcc1646-fd78-46fb-b9fc-96b620151deb",
+        "BaseAddiction": 0.0,
+        "CallPoliceChance": 0.655,
+        "CanBeDirectlyApproached": true,
+        "DependenceMultiplier": 1.0,
+        "GuaranteeFirstSampleSuccess": false,
+        "MaxMutualRelationRequirement": 5.0,
+        "MaxOrdersPerWeek": 5,
+        "MaxWeeklySpend": 2000.0,
+        "MinMutualRelationRequirement": 3.0,
+        "MinOrdersPerWeek": 1,
+        "MinWeeklySpend": 1000.0,
+        "OrderTime": 745,
+        "PreferredOrderDay": "Thursday",
+        "PreferredProperties": [
+            "Euphoric",
+            "ThoughtProvoking",
+            "Sneaky"
+        ],
+        "Standards": "High",
+        "CurrentAddiction": 0.0,
+        "Relationship": 2.0,
+        "Unlocked": false,
+        "Connections": [
+            "Ray Hoffman",
+            "Michael Boog"
+        ],
+        "ProductAffinities": {
+            "Marijuana": 0.39128992,
+            "Methamphetamine": -0.255589128,
+            "Cocaine": 0.8806286,
+            "MDMA": -0.6616745,
+            "Shrooms": -0.68,
+            "Heroin": 0.3
+        },
+        "Region": "Uptown"
     },
     {
         "fullName": "Meg Cooley",
@@ -2115,21 +2251,64 @@
             "ThoughtProvoking"
         ],
         "Standards": "Low",
-        "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
+        "Unlocked": true,
         "Connections": [
             "Shirley Watts",
             "Keith Wagner",
             "Trent Sherman"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.7928281,
+            "Marijuana": 1.0,
             "Methamphetamine": -0.03636539,
             "Cocaine": 0.721134663,
             "Shrooms": -0.664368153
         },
         "Region": "Westville"
+    },
+    {
+        "fullName": "Bruce Norton",
+        "name": "Bruce",
+        "FirstName": "Bruce",
+        "LastName": "Norton",
+        "ID": "bruce_norton",
+        "GUID": "5d05c58c-691f-4921-af2d-8e228f90af20",
+        "BaseAddiction": 0.0,
+        "CallPoliceChance": 0.357,
+        "CanBeDirectlyApproached": true,
+        "DependenceMultiplier": 1.0,
+        "GuaranteeFirstSampleSuccess": false,
+        "MaxMutualRelationRequirement": 5.0,
+        "MaxOrdersPerWeek": 5,
+        "MaxWeeklySpend": 1000.0,
+        "MinMutualRelationRequirement": 3.0,
+        "MinOrdersPerWeek": 1,
+        "MinWeeklySpend": 600.0,
+        "OrderTime": 1415,
+        "PreferredOrderDay": "Friday",
+        "PreferredProperties": [
+            "Energizing",
+            "Paranoia",
+            "Spicy"
+        ],
+        "Standards": "Moderate",
+        "CurrentAddiction": 0.0,
+        "Relationship": 2.0,
+        "Unlocked": false,
+        "Connections": [
+            "Jeff Gilmore",
+            "Philip Wentworth"
+        ],
+        "ProductAffinities": {
+            "Marijuana": -0.758066654,
+            "Methamphetamine": 0.759281158,
+            "Cocaine": -0.327896,
+            "MDMA": 0.0278016329,
+            "Shrooms": 1.0,
+            "Heroin": 0.7355175
+        },
+        "Region": "Downtown"
     },
     {
         "fullName": "Joyce Ball",
@@ -2157,9 +2336,9 @@
             "CalorieDense"
         ],
         "Standards": "Low",
-        "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
+        "Unlocked": true,
         "Connections": [
             "Keith Wagner",
             "Doris Lubbin",
@@ -2199,16 +2378,16 @@
             "Energizing"
         ],
         "Standards": "Low",
-        "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
+        "Unlocked": true,
         "Connections": [
             "Peter File",
             "Mrs. Ming",
             "Benji Coleman"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.793068647,
+            "Marijuana": 1.0,
             "Methamphetamine": -0.5934601,
             "Cocaine": -0.679656,
             "Shrooms": 0.7481522
@@ -2241,16 +2420,17 @@
             "Foggy"
         ],
         "Standards": "Moderate",
-        "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
+        "Unlocked": true,
         "Connections": [
             "Eugene Buckley",
             "Jeff Gilmore",
-            "Lucy Pennington"
+            "Lucy Pennington",
+            "Bruce Norton"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.9700911,
+            "Marijuana": 1.0,
             "Methamphetamine": 0.77982235,
             "Cocaine": -0.219307542,
             "Shrooms": 0.385851771
@@ -2275,7 +2455,7 @@
         "MinMutualRelationRequirement": 3.0,
         "MinOrdersPerWeek": 1,
         "MinWeeklySpend": 1000.0,
-        "OrderTime": 1500,
+        "OrderTime": 1430,
         "PreferredOrderDay": "Sunday",
         "PreferredProperties": [
             "Schizophrenic",
@@ -2317,7 +2497,7 @@
         "MinMutualRelationRequirement": 3.0,
         "MinOrdersPerWeek": 1,
         "MinWeeklySpend": 1000.0,
-        "OrderTime": 1130,
+        "OrderTime": 1110,
         "PreferredOrderDay": "Sunday",
         "PreferredProperties": [
             "Lethal",
@@ -2404,9 +2584,9 @@
         "PreferredOrderDay": "Sunday",
         "PreferredProperties": [],
         "Standards": "Moderate",
-        "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
+        "Unlocked": true,
         "Connections": [
             "Brad Crosby",
             "Jeff Gilmore",
@@ -2451,7 +2631,8 @@
         "Unlocked": false,
         "Connections": [
             "Leo Rivers",
-            "Jen Heard"
+            "Jen Heard",
+            "Irene Meadows"
         ],
         "ProductAffinities": {
             "Marijuana": 0.56,
@@ -2489,7 +2670,7 @@
         "Standards": "High",
         "CurrentAddiction": 0.0,
         "Relationship": 2.0,
-        "Unlocked": true,
+        "Unlocked": false,
         "Connections": [
             "Fiona Hancock",
             "Jen Heard"
@@ -2562,7 +2743,7 @@
         "MinMutualRelationRequirement": 3.0,
         "MinOrdersPerWeek": 1,
         "MinWeeklySpend": 200.0,
-        "OrderTime": 1100,
+        "OrderTime": 1215,
         "PreferredOrderDay": "Friday",
         "PreferredProperties": [
             "Spicy",
@@ -2570,15 +2751,15 @@
             "Balding"
         ],
         "Standards": "Low",
-        "CurrentAddiction": 0.0,
-        "Relationship": 2.0,
-        "Unlocked": false,
+        "CurrentAddiction": 1.0,
+        "Relationship": 5.0,
+        "Unlocked": true,
         "Connections": [
             "Kim Delaney",
             "Joyce Ball"
         ],
         "ProductAffinities": {
-            "Marijuana": 0.460892648,
+            "Marijuana": 1.0,
             "Methamphetamine": 0.157269835,
             "Cocaine": 0.5780153,
             "Shrooms": 0.749

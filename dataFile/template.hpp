@@ -13,7 +13,7 @@
 #define ITEM_AMT $ITEM_AMT$
 #define MAX_ITEM_EFFECT_CHANGERS $EFFECT_CHANGERS_AMT$
 #define SCALER $SCALER$
-#define GAME_VERSION "v0.4.2f8"
+#define GAME_VERSION "v0.4.3f3"
 
 constexpr uint8_t EFFECTS_BYTES = std::ceil(EFFECT_AMT / 8.0);
 constexpr uint8_t BASES_BYTES = std::ceil(std::log2(BASE_AMT) / 8.0);

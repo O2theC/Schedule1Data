@@ -15,27 +15,28 @@
 void mixItem(EffectSet &effects, const uint8_t itemId)
 {
 
-    const uint64_t containedEffects = effects.effects.data & ITEM_EFFECT_REPLACE_MASK[itemId].effects.data;
+    uint64_t containedEffects = effects.effects.data & ITEM_EFFECT_REPLACE_MASK[itemId].effects.data;
 
     if (containedEffects != 0) [[likely]]
     {
         effects.effects.data &= ~containedEffects;
+        const uint8_t* EFFECT_REPLACE_MASK = ITEM_EFFECT_REPLACE_MAP[itemId];
 
-        for (uint8_t bit = __builtin_ctzll(containedEffects); containedEffects >> bit != 0; bit = __builtin_ctzll(containedEffects >> (bit + 1)) + bit + 1)
+        while (containedEffects)
         {
-            if ((effects.effects.data & (((uint64_t)1) << ITEM_EFFECT_REPLACE_MAP[itemId][bit])) == 0)
-            {
-                effects.effects.data |= ((uint64_t)1) << ITEM_EFFECT_REPLACE_MAP[itemId][bit];
-            }
-            else
-            {
-                effects.effects.data |= ((uint64_t)1 << bit);
-            }
+            //get lowest bit
+            const uint8_t bit = __builtin_ctzll(containedEffects);            
 
-            if (containedEffects >> (bit + 1) == 0)
-            {
-                break;
-            }
+            const uint8_t replaceBit = EFFECT_REPLACE_MASK[bit]; 
+            const uint64_t replaceMask = (uint64_t)1 << replaceBit;
+            const uint64_t origMask = (uint64_t)1 << bit;
+
+            // branchless select: if replace slot is free, take it, else restore original
+            const uint64_t slotTaken = -(uint64_t)((effects.effects.data & replaceMask) != 0);
+            effects.effects.data |= (replaceMask & ~slotTaken) | (origMask & slotTaken);
+
+            // remove lowest bit
+            containedEffects &= containedEffects - 1;
         }
     }
 

@@ -13,7 +13,7 @@ using Newtonsoft.Json.Converters;
 
 
 //do above and below seperately 
-
+//certain values are save specific, such as the "price" one
 
 
 var settings = new JsonSerializerSettings

@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
 //do above before below
+// keep in mind, some of the data gathered is save specific , like relationship
 
 var settings = new JsonSerializerSettings
 {

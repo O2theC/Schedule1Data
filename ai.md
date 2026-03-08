@@ -1,4 +1,4 @@
-i do use chatgpt sometimes, i have been trying my best to use it to learn amoung other things, such as making some text better, since i'm not the best at putting ideas to words and can ramble sometimes
+i do use chatgpt (recently claude) sometimes, i have been trying my best to use it to learn amoung other things, such as making some text better, since i'm not the best at putting ideas to words and can ramble sometimes
 
 i do not vibe code, i don't copy paste much and try to understand whatever gpt regurgitates at me
 
