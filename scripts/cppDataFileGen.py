@@ -90,7 +90,7 @@ EffectAddictionStr = (
 EffectNamesStr = "{" + ",".join([f'"{effect}"' for effect in EffectNames]) + "}"
 EffectEnumStr = ",\n".join(
     [f'\t{name.upper().replace(" ","_").replace("-","_")}' for name in EffectNames]
-)
+)[1:]
 
 
 template = template.replace(r"$EFFECT_MODIFIERS$", EffectModifiersStr)
@@ -124,7 +124,7 @@ BaseBaseEffectsStr = (
 BaseNamesStr = "{" + ",".join([f'"{name}"' for name in BaseNames]) + "}"
 BaseEnumStr = ",\n".join(
     [f'\t{name.upper().replace(" ","_").replace("-","_")}' for name in BaseNames]
-)
+)[1:]
 
 
 template = template.replace(r"$BASE_PRICES$", BasePricesStr)
@@ -170,7 +170,7 @@ ItemEffectReplaceMapStr = (
 ItemNamesStr = "{" + ",".join([f'"{name}"' for name in ItemNames]) + "}"
 ItemEnumStr = ",\n".join(
     [f'\t{name.upper().replace(" ","_").replace("-","_")}' for name in ItemNames]
-)
+)[1:]
 
 template = template.replace(r"$ITEM_PRICES$", ItemPricesStr)
 template = template.replace(r"$ITEM_EFFECTS$", ItemEffectsStr)
@@ -183,9 +183,9 @@ template = template.replace(r"$ITEM_ENUM$", ItemEnumStr)
 
 CustomerNamesEnum = ",\n".join(
     [f'\t{name["fullName"].upper().replace(" ","_").replace("-","_").replace(".","")}' for name in CustomerData]
-)
+)[1:]
 template = template.replace(r"$CUSTOMER_ENUM$", CustomerNamesEnum)
-
+template = template.replace("\t","    ")
 
 with open(pathPrefix + "./dataFile/dataFile.hpp", "w") as f:
     f.write(template)

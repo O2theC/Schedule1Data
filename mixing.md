@@ -33,7 +33,7 @@ though because all of these values are static and finite, this is often simplifi
 
 Each Item has a map of what effects turn into what other effect when the item is applied
 
-For example, Cuke has a mapping of munchies to athletic , meaning if Cuke is mixed with a Strain that has the effect Munchies, then Munchies would be replaced with Athletic , but there is something important to know of, this replacement doesn't take place if the resulting effect already exists, so for our example, if Athletic already existed in the Strain then Munchies would stay and not change, along with that, an Effect can not change more than once per mix operation 
+For example, Cuke has a mapping of munchies to athletic , meaning if Cuke is mixed with a Strain that has the effect Munchies, then Munchies would be replaced with Athletic , but there is something important to know of, this replacement doesn't take place if the resulting effect already exists, so for our example, if Athletic already existed in the Strain then Munchies would stay and not change, along with that, an Effect can not change more than once per mix operation, this is important as some Items have mappings such that the output of one mapping is the input of another, it is important when making a mixing calc that this edge case is taken care of, or else the result will be wrong
 
 ---- 
 

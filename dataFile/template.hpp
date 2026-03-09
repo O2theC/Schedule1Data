@@ -24,6 +24,8 @@ using fmt::format;
 using std::string;
 using std::vector;
 
+// these represent the modifier the effect adds as a fixed decimal point of 2, basically divide this number by 100 to get the real number
+//  this is smaller than a float and is generally faster
 constexpr uint16_t EFFECT_MODIFIERS[] = $EFFECT_MODIFIERS$;
 
 // not a fan of having to have these up here, but i don't want another file
@@ -36,13 +38,14 @@ inline void hash_combine(std::size_t &seed, const T &val)
     seed ^= hasher(val) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
 }
 
-struct customBitSet
+// uses uint64 underneath - made my own version of some things so i know exactly what it is doing, ideally being slightly faster
+struct BitSet64
 {
     uint64_t data;
 
-    constexpr customBitSet() : data(0) {}
+    constexpr BitSet64() : data(0) {}
 
-    constexpr customBitSet(const uint64_t data_) : data(data_) {}
+    constexpr BitSet64(const uint64_t data_) : data(data_) {}
 
     uint8_t bitcount() const
     {
@@ -61,14 +64,7 @@ struct customBitSet
 
     void set(const uint8_t index, const bool val)
     {
-        if (val)
-        {
-            setTrue(index);
-        }
-        else
-        {
-            setFalse(index);
-        }
+        data = (data & ~(1ULL << index)) | ((uint64_t)val << index);
     }
 
     bool test(const uint8_t index) const
@@ -76,11 +72,13 @@ struct customBitSet
         return (data >> index) & 1;
     }
 
+    // ensure (data >> index) is not 0
     uint8_t findNext(const uint8_t index) const
     {
         return __builtin_ctzll(data >> index) + index;
     }
 
+    // ensure data is not 0
     uint8_t findNext() const
     {
         return __builtin_ctzll(data);
@@ -100,13 +98,14 @@ void print(const Type &var)
 
 const float EFFECT_ADDICTION[] = $EFFECT_ADDICTION$;
 
-constexpr size_t effectLookupByName(string effectName);
-constexpr size_t baseLookupByName(string baseName);
-constexpr size_t itemLookupByName(string itemName);
+constexpr uint8_t effectByName(string effectName);
+constexpr uint8_t baseByName(string baseName);
+constexpr uint8_t itemByName(string itemName);
 
+// uses uint64 underneath
 struct EffectSet
 {
-    customBitSet effects;
+    BitSet64 effects;
     constexpr EffectSet() { clear(); };
 
     constexpr EffectSet(const uint8_t effectId)
@@ -218,7 +217,7 @@ struct EffectSet
         // effects |= (1 << effect.id);
         try
         {
-            this->add(effectLookupByName(effectName));
+            this->add(effectByName(effectName));
         }
         catch (std::invalid_argument &e)
         {
@@ -279,10 +278,10 @@ struct EffectSet
         return effects.data & other.effects.data;
     }
 };
-
+// uses uint64 underneath
 struct BaseSet
 {
-    customBitSet bases;
+    BitSet64 bases;
     constexpr BaseSet() { clear(); };
 
     constexpr BaseSet(const uint8_t baseId)
@@ -373,7 +372,7 @@ struct BaseSet
     {
         try
         {
-            this->add(baseLookupByName(baseName));
+            this->add(baseByName(baseName));
         }
         catch (std::invalid_argument &e)
         {
@@ -411,10 +410,10 @@ struct BaseSet
         return this->bases.data & other.bases.data;
     }
 };
-
+// uses uint64 underneath
 struct ItemSet
 {
-    customBitSet items;
+    BitSet64 items;
     constexpr ItemSet() { clear(); };
 
     constexpr ItemSet(const uint8_t itemId)
@@ -505,7 +504,7 @@ struct ItemSet
     {
         try
         {
-            this->add(itemLookupByName(itemName));
+            this->add(itemByName(itemName));
         }
         catch (std::invalid_argument &e)
         {
@@ -547,7 +546,7 @@ constexpr EffectSet BASE_BASE_EFFECTS[] = $BASE_EFFECTS$;
 
 const std::string BASE_NAMES[] = $BASE_NAMES$;
 
-constexpr uint16_t ITEM_PRICES[] = $ITEM_PRICES$; // these are 10x to add 2 places of fixed decimals
+constexpr uint16_t ITEM_PRICES[] = $ITEM_PRICES$; // these are 100x to add 2 places of fixed decimals
 
 constexpr uint8_t ITEM_EFFECTS[] = $ITEM_EFFECTS$;
 
@@ -574,160 +573,60 @@ namespace std
     };
 }
 
-template <typename Type, uint8_t Capacity>
-struct customVector
-{
-    Type data[Capacity];
-    uint8_t length;
+// struct NodeBase
+// {
+//     uint8_t baseId = 255;        // strain base id
+//     uint8_t mixFromParent = 255; // item id
 
-    constexpr customVector()
-    {
-        length = 0;
-    };
+//     uint32_t makeprice = ((uint32_t)0) - 1; // total ingrident cost so far (note uses a scaler of 100 to allow for decimals )
+//     EffectSet effects;                      // what effects does it have, a position of sorts
 
-    template <typename OtherType, typename = std::enable_if_t<std::is_convertible_v<OtherType, Type>>>
-    constexpr customVector(const customVector<OtherType, Capacity> &other) : data(other.data), length(other.length)
-    {
-    }
+//     uint8_t mixDepth = ((uint8_t)0) - 1;
+//     small_vector<uint32_t, ITEM_AMT> childrenIndexs; // parent and children are needed so when a better path is found, cost can be propagated
+//     uint32_t parentIndex = 25000000;
+//     bool isStartNode = false; // when this is true, you can no longer expect parrent, or mixFromParrent to have valid data
+//     uint32_t selfIndex = 0;
 
-    constexpr customVector(const Type otherData[Capacity], const uint8_t otherLength) : data(otherData), length(otherLength) {}
+//     constexpr NodeBase() {}
 
-    const Type &operator[](const uint8_t index) const
-    {
-        if (index > length)
-        {
-            throw std::out_of_range("Index out of bounds");
-        };
-        return data[index];
-    }
+//     NodeBase(const small_vector<uint32_t, ITEM_AMT> &childrenIndexs_) : childrenIndexs(childrenIndexs_) {}
 
-    Type &operator[](const uint8_t index)
-    {
-        if (index >= length)
-        {
-            throw std::out_of_range("Index out of bounds");
-        };
-        return data[index];
-    }
+//     constexpr NodeBase(NodeBase &node, uint8_t itemId) : baseId(node.baseId), mixFromParent(itemId), makeprice(node.makeprice + ITEM_PRICES[itemId]), effects(node.effects), mixDepth(node.mixDepth + 1), parentIndex(node.selfIndex) {};
 
-    void push_back(const Type &element)
-    {
-        if (length >= Capacity)
-        {
-            throw std::runtime_error("array can't get bigger");
-        };
-        data[length] = element;
-        length++;
-    }
+//     constexpr NodeBase(const uint8_t baseId_, const uint8_t index) : baseId(baseId_), makeprice(BASE_COSTS[baseId_]), effects(BASE_BASE_EFFECTS[baseId_]), mixDepth(0), isStartNode(true), selfIndex(index) {};
+// };
 
-    uint8_t size() const
-    {
-        return length;
-    }
+// namespace std
+// {
+//     template <>
+//     struct hash<NodeBase>
+//     {
+//         std::size_t operator()(const NodeBase &node) const noexcept
+//         {
+//             std::size_t seed = 0;
+//             hash_combine(seed, node.baseId);
+//             hash_combine(seed, node.mixFromParent);
+//             hash_combine(seed, node.makeprice);
+//             hash_combine(seed, node.effects);
+//             hash_combine(seed, node.mixDepth);
+//             hash_combine(seed, node.parentIndex);
+//             hash_combine(seed, node.isStartNode);
+//             hash_combine(seed, node.selfIndex);
+//             for (size_t i = 0; i < node.childrenIndexs.size(); i++)
+//             {
+//                 hash_combine(seed, node.childrenIndexs[i]);
+//             }
 
-    uint8_t find(const Type toFind) const
-    {
-        for (uint8_t i = 0; i < length; i++)
-        {
-            if (data[i] == toFind)
-            {
-                return i;
-            }
-        }
-        return 255;
-    }
+//             return seed;
+//         }
+//     };
 
-    struct Iterator
-    {
-        using Type_ = Type;
-        const customVector *parent;
-        uint8_t index;
+// }
 
-        Iterator(const customVector *parent, uint8_t start)
-            : parent(parent), index(start)
-        {
-        }
-
-        void next()
-        {
-            index += 1;
-        }
-
-        Iterator &operator++()
-        {
-            next();
-            return *this;
-        }
-
-        bool operator!=(const Iterator &other) const
-        {
-            return index != other.index;
-        }
-
-        const Type_ &operator*() const
-        {
-            return parent->data[index];
-        }
-    };
-
-    Iterator begin() const { return Iterator(this, 0); }
-    Iterator end() const { return Iterator(this, length); }
-};
-
-struct NodeBase
-{
-    uint8_t baseId = 255;        // strain base id
-    uint8_t mixFromParent = 255; // item id
-
-    uint32_t makeprice = ((uint32_t)0) - 1; // total ingrident cost so far (note uses a scaler of 100 to allow for decimals )
-    EffectSet effects;                      // what effects does it have, a position of sorts
-
-    uint8_t mixDepth = ((uint8_t)0) - 1;
-    small_vector<uint32_t, ITEM_AMT> childrenIndexs; // parent and children are needed so when a better path is found, cost can be propagated
-    uint32_t parentIndex = 25000000;
-    bool isStartNode = false; // when this is true, you can no longer expect parrent, or mixFromParrent to have valid data
-    uint32_t selfIndex = 0;
-
-    constexpr NodeBase() {}
-
-    NodeBase(const small_vector<uint32_t, ITEM_AMT> &childrenIndexs_) : childrenIndexs(childrenIndexs_) {}
-
-    constexpr NodeBase(NodeBase &node, uint8_t itemId) : baseId(node.baseId), mixFromParent(itemId), makeprice(node.makeprice + ITEM_PRICES[itemId]), effects(node.effects), mixDepth(node.mixDepth + 1), parentIndex(node.selfIndex) {};
-
-    constexpr NodeBase(const uint8_t baseId_, const uint8_t index) : baseId(baseId_), makeprice(BASE_COSTS[baseId_]), effects(BASE_BASE_EFFECTS[baseId_]), mixDepth(0), isStartNode(true), selfIndex(index) {};
-};
-
-namespace std
-{
-    template <>
-    struct hash<NodeBase>
-    {
-        std::size_t operator()(const NodeBase &node) const noexcept
-        {
-            std::size_t seed = 0;
-            hash_combine(seed, node.baseId);
-            hash_combine(seed, node.mixFromParent);
-            hash_combine(seed, node.makeprice);
-            hash_combine(seed, node.effects);
-            hash_combine(seed, node.mixDepth);
-            hash_combine(seed, node.parentIndex);
-            hash_combine(seed, node.isStartNode);
-            hash_combine(seed, node.selfIndex);
-            for (size_t i = 0; i < node.childrenIndexs.size(); i++)
-            {
-                hash_combine(seed, node.childrenIndexs[i]);
-            }
-
-            return seed;
-        }
-    };
-
-}
-
-constexpr size_t stringSearch(const std::string *list, uint8_t len, string toFind)
+constexpr uint8_t stringSearch(const std::string *list, uint8_t len, string toFind)
 {
 
-    for (size_t i = 0; i < len; i++)
+    for (uint8_t i = 0; i < len; i++)
     {
         if (list[i] == toFind)
         {
@@ -737,36 +636,39 @@ constexpr size_t stringSearch(const std::string *list, uint8_t len, string toFin
     return 255;
 }
 
-constexpr size_t effectLookupByName(string effectName)
+constexpr uint8_t effectByName(string effectName)
 {
     return stringSearch(EFFECTNAMES, EFFECT_AMT, effectName);
 }
 
-constexpr size_t baseLookupByName(string baseName)
+constexpr uint8_t baseByName(string baseName)
 {
     return stringSearch(BASE_NAMES, BASE_AMT, baseName);
 }
 
-constexpr size_t itemLookupByName(string itemName)
+constexpr uint8_t itemByName(string itemName)
 {
     return stringSearch(ITEM_NAMES, ITEM_AMT, itemName);
 }
 
 uint64_t pow(uint64_t base, uint64_t power);
 
-enum Bases {
-$BASE_ENUM$
+enum Bases
+{
+    $BASE_ENUM$
 };
 
-enum Items {
-$ITEM_ENUM$
+enum Items
+{
+    $ITEM_ENUM$
 };
 
-
-enum EFFECTS {
-$EFFECT_ENUM$
+enum EFFECTS
+{
+    $EFFECT_ENUM$
 };
 
-enum CUSTOMERS {
-$CUSTOMER_ENUM$
+enum CUSTOMERS
+{
+    $CUSTOMER_ENUM$
 };

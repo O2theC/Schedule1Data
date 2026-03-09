@@ -24,6 +24,8 @@ using fmt::format;
 using std::string;
 using std::vector;
 
+// these represent the modifier the effect adds as a fixed decimal point of 2, basically divide this number by 100 to get the real number
+//  this is smaller than a float and is generally faster
 constexpr uint16_t EFFECT_MODIFIERS[] = {10,18,16,12,0,14,0,28,0,22,20,26,24,0,32,30,36,0,0,34,38,40,48,42,0,0,44,46,54,56,50,0,52,60,58};
 
 // not a fan of having to have these up here, but i don't want another file
@@ -36,13 +38,14 @@ inline void hash_combine(std::size_t &seed, const T &val)
     seed ^= hasher(val) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
 }
 
-struct customBitSet
+// uses uint64 underneath - made my own version of some things so i know exactly what it is doing, ideally being slightly faster
+struct BitSet64
 {
     uint64_t data;
 
-    constexpr customBitSet() : data(0) {}
+    constexpr BitSet64() : data(0) {}
 
-    constexpr customBitSet(const uint64_t data_) : data(data_) {}
+    constexpr BitSet64(const uint64_t data_) : data(data_) {}
 
     uint8_t bitcount() const
     {
@@ -61,14 +64,7 @@ struct customBitSet
 
     void set(const uint8_t index, const bool val)
     {
-        if (val)
-        {
-            setTrue(index);
-        }
-        else
-        {
-            setFalse(index);
-        }
+        data = (data & ~(1ULL << index)) | ((uint64_t)val << index);
     }
 
     bool test(const uint8_t index) const
@@ -76,11 +72,13 @@ struct customBitSet
         return (data >> index) & 1;
     }
 
+    // ensure (data >> index) is not 0
     uint8_t findNext(const uint8_t index) const
     {
         return __builtin_ctzll(data >> index) + index;
     }
 
+    // ensure data is not 0
     uint8_t findNext() const
     {
         return __builtin_ctzll(data);
@@ -100,13 +98,14 @@ void print(const Type &var)
 
 const float EFFECT_ADDICTION[] = {0.0,0.235,0.104,0.096,0.0,0.104,0.0,0.1,0.0,0.34,0.0,0.0,0.327,0.0,0.607,0.0,0.1,0.1,0.0,0.309,0.665,0.2,0.472,0.343,0.0,0.0,0.37,0.803,0.611,0.1,0.235,0.0,0.607,0.336,0.598};
 
-constexpr size_t effectLookupByName(string effectName);
-constexpr size_t baseLookupByName(string baseName);
-constexpr size_t itemLookupByName(string itemName);
+constexpr uint8_t effectByName(string effectName);
+constexpr uint8_t baseByName(string baseName);
+constexpr uint8_t itemByName(string itemName);
 
+// uses uint64 underneath
 struct EffectSet
 {
-    customBitSet effects;
+    BitSet64 effects;
     constexpr EffectSet() { clear(); };
 
     constexpr EffectSet(const uint8_t effectId)
@@ -218,7 +217,7 @@ struct EffectSet
         // effects |= (1 << effect.id);
         try
         {
-            this->add(effectLookupByName(effectName));
+            this->add(effectByName(effectName));
         }
         catch (std::invalid_argument &e)
         {
@@ -279,10 +278,10 @@ struct EffectSet
         return effects.data & other.effects.data;
     }
 };
-
+// uses uint64 underneath
 struct BaseSet
 {
-    customBitSet bases;
+    BitSet64 bases;
     constexpr BaseSet() { clear(); };
 
     constexpr BaseSet(const uint8_t baseId)
@@ -373,7 +372,7 @@ struct BaseSet
     {
         try
         {
-            this->add(baseLookupByName(baseName));
+            this->add(baseByName(baseName));
         }
         catch (std::invalid_argument &e)
         {
@@ -411,10 +410,10 @@ struct BaseSet
         return this->bases.data & other.bases.data;
     }
 };
-
+// uses uint64 underneath
 struct ItemSet
 {
-    customBitSet items;
+    BitSet64 items;
     constexpr ItemSet() { clear(); };
 
     constexpr ItemSet(const uint8_t itemId)
@@ -505,7 +504,7 @@ struct ItemSet
     {
         try
         {
-            this->add(itemLookupByName(itemName));
+            this->add(itemByName(itemName));
         }
         catch (std::invalid_argument &e)
         {
@@ -547,7 +546,7 @@ constexpr EffectSet BASE_BASE_EFFECTS[] = {EffectSet((uint64_t)1),EffectSet((uin
 
 const std::string BASE_NAMES[] = {"OG Kush","Sour Diesel","Green Crack","Granddaddy Purple","Meth","Cocaine","Shroom"};
 
-constexpr uint16_t ITEM_PRICES[] = {900,200,800,700,200,300,600,500,500,900,800,700,600,400,300,400}; // these are 10x to add 2 places of fixed decimals
+constexpr uint16_t ITEM_PRICES[] = {900,200,800,700,200,300,600,500,500,900,800,700,600,400,300,400}; // these are 100x to add 2 places of fixed decimals
 
 constexpr uint8_t ITEM_EFFECTS[] = {26,10,21,20,9,7,14,11,13,32,23,16,19,15,12,27};
 
@@ -557,22 +556,22 @@ constexpr EffectSet ITEM_EFFECT_REPLACE_MASK[] = {EffectSet((uint64_t)6446712832
 
 // for an item, and a certain effect (replacee), what effect should be the replacer
 constexpr uint8_t ITEM_EFFECT_REPLACE_MAP[ITEM_AMT][EFFECT_AMT] = {
-	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 30, 0, 0},
-	{12, 0, 18, 0, 23, 0, 28, 0, 2, 26, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 5, 0, 0},
-	{0, 34, 0, 27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 1, 0, 0, 3, 0},
-	{0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 1, 0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 27, 0, 0, 0, 0, 5, 0},
-	{0, 17, 0, 14, 0, 0, 0, 0, 0, 0, 26, 0, 4, 1, 0, 0, 29, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-	{0, 0, 1, 0, 0, 0, 0, 31, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 10, 17, 0, 0, 0, 19, 0, 0, 0, 0, 9, 0},
-	{0, 9, 33, 0, 0, 0, 0, 0, 30, 0, 0, 3, 0, 0, 0, 0, 17, 0, 0, 0, 1, 0, 8, 0, 0, 15, 0, 12, 0, 0, 0, 0, 0, 0, 0},
-	{21, 13, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 1, 0, 0, 0, 0, 0, 0, 2, 0, 10, 0, 0, 16, 5, 0, 0, 4, 0},
-	{0, 20, 0, 11, 0, 0, 0, 0, 22, 1, 6, 0, 27, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 8, 0, 0, 2, 0},
-	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0},
-	{15, 18, 0, 0, 0, 26, 0, 10, 0, 0, 0, 0, 0, 12, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-	{22, 0, 8, 0, 0, 0, 0, 0, 0, 29, 0, 0, 0, 0, 17, 0, 0, 0, 2, 13, 0, 0, 0, 4, 0, 0, 9, 0, 0, 0, 0, 0, 0, 30, 0},
-	{0, 11, 0, 25, 28, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-	{28, 0, 23, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 0, 0},
-	{19, 0, 10, 28, 15, 0, 0, 0, 0, 4, 0, 0, 0, 27, 0, 0, 0, 0, 0, 0, 21, 0, 13, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0},
-	{0, 21, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0}};
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 30, 0, 0},
+    {12, 0, 18, 0, 23, 0, 28, 0, 2, 26, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 5, 0, 0},
+    {0, 34, 0, 27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 1, 0, 0, 3, 0},
+    {0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 1, 0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 27, 0, 0, 0, 0, 5, 0},
+    {0, 17, 0, 14, 0, 0, 0, 0, 0, 0, 26, 0, 4, 1, 0, 0, 29, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 1, 0, 0, 0, 0, 31, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 10, 17, 0, 0, 0, 19, 0, 0, 0, 0, 9, 0},
+    {0, 9, 33, 0, 0, 0, 0, 0, 30, 0, 0, 3, 0, 0, 0, 0, 17, 0, 0, 0, 1, 0, 8, 0, 0, 15, 0, 12, 0, 0, 0, 0, 0, 0, 0},
+    {21, 13, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 1, 0, 0, 0, 0, 0, 0, 2, 0, 10, 0, 0, 16, 5, 0, 0, 4, 0},
+    {0, 20, 0, 11, 0, 0, 0, 0, 22, 1, 6, 0, 27, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 8, 0, 0, 2, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0},
+    {15, 18, 0, 0, 0, 26, 0, 10, 0, 0, 0, 0, 0, 12, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {22, 0, 8, 0, 0, 0, 0, 0, 0, 29, 0, 0, 0, 0, 17, 0, 0, 0, 2, 13, 0, 0, 0, 4, 0, 0, 9, 0, 0, 0, 0, 0, 0, 30, 0},
+    {0, 11, 0, 25, 28, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {28, 0, 23, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 0, 0},
+    {19, 0, 10, 28, 15, 0, 0, 0, 0, 4, 0, 0, 0, 27, 0, 0, 0, 0, 0, 0, 21, 0, 13, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0},
+    {0, 21, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0}};
 
 const std::string ITEM_NAMES[] = {"Addy","Banana","Battery","Chili","Cuke","Donut","Energy Drink","Flu Medicine","Gasoline","Horse Semen","Iodine","Mega Bean","Motor Oil","Mouth Wash","Paracetamol","Viagor"};
 
@@ -590,160 +589,60 @@ namespace std
     };
 }
 
-template <typename Type, uint8_t Capacity>
-struct customVector
-{
-    Type data[Capacity];
-    uint8_t length;
+// struct NodeBase
+// {
+//     uint8_t baseId = 255;        // strain base id
+//     uint8_t mixFromParent = 255; // item id
 
-    constexpr customVector()
-    {
-        length = 0;
-    };
+//     uint32_t makeprice = ((uint32_t)0) - 1; // total ingrident cost so far (note uses a scaler of 100 to allow for decimals )
+//     EffectSet effects;                      // what effects does it have, a position of sorts
 
-    template <typename OtherType, typename = std::enable_if_t<std::is_convertible_v<OtherType, Type>>>
-    constexpr customVector(const customVector<OtherType, Capacity> &other) : data(other.data), length(other.length)
-    {
-    }
+//     uint8_t mixDepth = ((uint8_t)0) - 1;
+//     small_vector<uint32_t, ITEM_AMT> childrenIndexs; // parent and children are needed so when a better path is found, cost can be propagated
+//     uint32_t parentIndex = 25000000;
+//     bool isStartNode = false; // when this is true, you can no longer expect parrent, or mixFromParrent to have valid data
+//     uint32_t selfIndex = 0;
 
-    constexpr customVector(const Type otherData[Capacity], const uint8_t otherLength) : data(otherData), length(otherLength) {}
+//     constexpr NodeBase() {}
 
-    const Type &operator[](const uint8_t index) const
-    {
-        if (index > length)
-        {
-            throw std::out_of_range("Index out of bounds");
-        };
-        return data[index];
-    }
+//     NodeBase(const small_vector<uint32_t, ITEM_AMT> &childrenIndexs_) : childrenIndexs(childrenIndexs_) {}
 
-    Type &operator[](const uint8_t index)
-    {
-        if (index >= length)
-        {
-            throw std::out_of_range("Index out of bounds");
-        };
-        return data[index];
-    }
+//     constexpr NodeBase(NodeBase &node, uint8_t itemId) : baseId(node.baseId), mixFromParent(itemId), makeprice(node.makeprice + ITEM_PRICES[itemId]), effects(node.effects), mixDepth(node.mixDepth + 1), parentIndex(node.selfIndex) {};
 
-    void push_back(const Type &element)
-    {
-        if (length >= Capacity)
-        {
-            throw std::runtime_error("array can't get bigger");
-        };
-        data[length] = element;
-        length++;
-    }
+//     constexpr NodeBase(const uint8_t baseId_, const uint8_t index) : baseId(baseId_), makeprice(BASE_COSTS[baseId_]), effects(BASE_BASE_EFFECTS[baseId_]), mixDepth(0), isStartNode(true), selfIndex(index) {};
+// };
 
-    uint8_t size() const
-    {
-        return length;
-    }
+// namespace std
+// {
+//     template <>
+//     struct hash<NodeBase>
+//     {
+//         std::size_t operator()(const NodeBase &node) const noexcept
+//         {
+//             std::size_t seed = 0;
+//             hash_combine(seed, node.baseId);
+//             hash_combine(seed, node.mixFromParent);
+//             hash_combine(seed, node.makeprice);
+//             hash_combine(seed, node.effects);
+//             hash_combine(seed, node.mixDepth);
+//             hash_combine(seed, node.parentIndex);
+//             hash_combine(seed, node.isStartNode);
+//             hash_combine(seed, node.selfIndex);
+//             for (size_t i = 0; i < node.childrenIndexs.size(); i++)
+//             {
+//                 hash_combine(seed, node.childrenIndexs[i]);
+//             }
 
-    uint8_t find(const Type toFind) const
-    {
-        for (uint8_t i = 0; i < length; i++)
-        {
-            if (data[i] == toFind)
-            {
-                return i;
-            }
-        }
-        return 255;
-    }
+//             return seed;
+//         }
+//     };
 
-    struct Iterator
-    {
-        using Type_ = Type;
-        const customVector *parent;
-        uint8_t index;
+// }
 
-        Iterator(const customVector *parent, uint8_t start)
-            : parent(parent), index(start)
-        {
-        }
-
-        void next()
-        {
-            index += 1;
-        }
-
-        Iterator &operator++()
-        {
-            next();
-            return *this;
-        }
-
-        bool operator!=(const Iterator &other) const
-        {
-            return index != other.index;
-        }
-
-        const Type_ &operator*() const
-        {
-            return parent->data[index];
-        }
-    };
-
-    Iterator begin() const { return Iterator(this, 0); }
-    Iterator end() const { return Iterator(this, length); }
-};
-
-struct NodeBase
-{
-    uint8_t baseId = 255;        // strain base id
-    uint8_t mixFromParent = 255; // item id
-
-    uint32_t makeprice = ((uint32_t)0) - 1; // total ingrident cost so far (note uses a scaler of 100 to allow for decimals )
-    EffectSet effects;                      // what effects does it have, a position of sorts
-
-    uint8_t mixDepth = ((uint8_t)0) - 1;
-    small_vector<uint32_t, ITEM_AMT> childrenIndexs; // parent and children are needed so when a better path is found, cost can be propagated
-    uint32_t parentIndex = 25000000;
-    bool isStartNode = false; // when this is true, you can no longer expect parrent, or mixFromParrent to have valid data
-    uint32_t selfIndex = 0;
-
-    constexpr NodeBase() {}
-
-    NodeBase(const small_vector<uint32_t, ITEM_AMT> &childrenIndexs_) : childrenIndexs(childrenIndexs_) {}
-
-    constexpr NodeBase(NodeBase &node, uint8_t itemId) : baseId(node.baseId), mixFromParent(itemId), makeprice(node.makeprice + ITEM_PRICES[itemId]), effects(node.effects), mixDepth(node.mixDepth + 1), parentIndex(node.selfIndex) {};
-
-    constexpr NodeBase(const uint8_t baseId_, const uint8_t index) : baseId(baseId_), makeprice(BASE_COSTS[baseId_]), effects(BASE_BASE_EFFECTS[baseId_]), mixDepth(0), isStartNode(true), selfIndex(index) {};
-};
-
-namespace std
-{
-    template <>
-    struct hash<NodeBase>
-    {
-        std::size_t operator()(const NodeBase &node) const noexcept
-        {
-            std::size_t seed = 0;
-            hash_combine(seed, node.baseId);
-            hash_combine(seed, node.mixFromParent);
-            hash_combine(seed, node.makeprice);
-            hash_combine(seed, node.effects);
-            hash_combine(seed, node.mixDepth);
-            hash_combine(seed, node.parentIndex);
-            hash_combine(seed, node.isStartNode);
-            hash_combine(seed, node.selfIndex);
-            for (size_t i = 0; i < node.childrenIndexs.size(); i++)
-            {
-                hash_combine(seed, node.childrenIndexs[i]);
-            }
-
-            return seed;
-        }
-    };
-
-}
-
-constexpr size_t stringSearch(const std::string *list, uint8_t len, string toFind)
+constexpr uint8_t stringSearch(const std::string *list, uint8_t len, string toFind)
 {
 
-    for (size_t i = 0; i < len; i++)
+    for (uint8_t i = 0; i < len; i++)
     {
         if (list[i] == toFind)
         {
@@ -753,156 +652,159 @@ constexpr size_t stringSearch(const std::string *list, uint8_t len, string toFin
     return 255;
 }
 
-constexpr size_t effectLookupByName(string effectName)
+constexpr uint8_t effectByName(string effectName)
 {
     return stringSearch(EFFECTNAMES, EFFECT_AMT, effectName);
 }
 
-constexpr size_t baseLookupByName(string baseName)
+constexpr uint8_t baseByName(string baseName)
 {
     return stringSearch(BASE_NAMES, BASE_AMT, baseName);
 }
 
-constexpr size_t itemLookupByName(string itemName)
+constexpr uint8_t itemByName(string itemName)
 {
     return stringSearch(ITEM_NAMES, ITEM_AMT, itemName);
 }
 
 uint64_t pow(uint64_t base, uint64_t power);
 
-enum Bases {
-	OG_KUSH,
-	SOUR_DIESEL,
-	GREEN_CRACK,
-	GRANDDADDY_PURPLE,
-	METH,
-	COCAINE,
-	SHROOM
+enum Bases
+{
+    OG_KUSH,
+    SOUR_DIESEL,
+    GREEN_CRACK,
+    GRANDDADDY_PURPLE,
+    METH,
+    COCAINE,
+    SHROOM
 };
 
-enum Items {
-	ADDY,
-	BANANA,
-	BATTERY,
-	CHILI,
-	CUKE,
-	DONUT,
-	ENERGY_DRINK,
-	FLU_MEDICINE,
-	GASOLINE,
-	HORSE_SEMEN,
-	IODINE,
-	MEGA_BEAN,
-	MOTOR_OIL,
-	MOUTH_WASH,
-	PARACETAMOL,
-	VIAGOR
+enum Items
+{
+    ADDY,
+    BANANA,
+    BATTERY,
+    CHILI,
+    CUKE,
+    DONUT,
+    ENERGY_DRINK,
+    FLU_MEDICINE,
+    GASOLINE,
+    HORSE_SEMEN,
+    IODINE,
+    MEGA_BEAN,
+    MOTOR_OIL,
+    MOUTH_WASH,
+    PARACETAMOL,
+    VIAGOR
 };
 
-
-enum EFFECTS {
-	CALMING,
-	EUPHORIC,
-	FOCUSED,
-	MUNCHIES,
-	PARANOIA,
-	REFRESHING,
-	SMELLY,
-	CALORIE_DENSE,
-	DISORIENTING,
-	ENERGIZING,
-	GINGERITIS,
-	SEDATING,
-	SNEAKY,
-	TOXIC,
-	ATHLETIC,
-	BALDING,
-	FOGGY,
-	LAXATIVE,
-	SEIZURE_INDUCING,
-	SLIPPERY,
-	SPICY,
-	BRIGHT_EYED,
-	GLOWING,
-	JENNERISING,
-	LETHAL,
-	SCHIZOPHRENIC,
-	THOUGHT_PROVOKING,
-	TROPIC_THUNDER,
-	ANTI_GRAVITY,
-	CYCLOPEAN,
-	ELECTRIFYING,
-	EXPLOSIVE,
-	LONG_FACED,
-	SHRINKING,
-	ZOMBIFYING
+enum EFFECTS
+{
+    CALMING,
+    EUPHORIC,
+    FOCUSED,
+    MUNCHIES,
+    PARANOIA,
+    REFRESHING,
+    SMELLY,
+    CALORIE_DENSE,
+    DISORIENTING,
+    ENERGIZING,
+    GINGERITIS,
+    SEDATING,
+    SNEAKY,
+    TOXIC,
+    ATHLETIC,
+    BALDING,
+    FOGGY,
+    LAXATIVE,
+    SEIZURE_INDUCING,
+    SLIPPERY,
+    SPICY,
+    BRIGHT_EYED,
+    GLOWING,
+    JENNERISING,
+    LETHAL,
+    SCHIZOPHRENIC,
+    THOUGHT_PROVOKING,
+    TROPIC_THUNDER,
+    ANTI_GRAVITY,
+    CYCLOPEAN,
+    ELECTRIFYING,
+    EXPLOSIVE,
+    LONG_FACED,
+    SHRINKING,
+    ZOMBIFYING
 };
 
-enum CUSTOMERS {
-	JESSI_WATERS,
-	DONNA_MARTIN,
-	JACK_KNIGHT,
-	GERALDINE_POON,
-	KEITH_WAGNER,
-	KEVIN_OAKLEY,
-	BILLY_KRAMER,
-	MARCO_BARONE,
-	KATHY_HENDERSON,
-	BETH_PENN,
-	TOBIAS_WENTWORTH,
-	KIM_DELANEY,
-	LISA_GARDENER,
-	EUGENE_BUCKLEY,
-	KAREN_KENNEDY,
-	TRENT_SHERMAN,
-	JEN_HEARD,
-	MICHAEL_BOOG,
-	DEAN_WEBSTER,
-	ELIZABETH_HOMLEY,
-	HERBERT_BLEUBALL,
-	MICK_LUBBIN,
-	GENGHIS_BARN,
-	CHLOE_BOWERS,
-	MAC_COOPER,
-	SAM_THOMPSON,
-	JERRY_MONTERO,
-	GREG_FIGGLE,
-	JEFF_GILMORE,
-	GEORGE_GREENE,
-	JAVIER_PÉREZ,
-	CHRIS_SULLIVAN,
-	CARL_BUNDY,
-	SHERMAN_GILES,
-	PETER_FILE,
-	JENNIFER_RIVERA,
-	AUSTIN_STEINER,
-	HANK_STEVENSON,
-	LOUIS_FOURIER,
-	MRS_MING,
-	MELISSA_WOOD,
-	JACKIE_STEVENSON,
-	CHARLES_ROWLAND,
-	KELLY_REYNOLDS,
-	CRANKY_FRANK,
-	HAROLD_COLT,
-	KYLE_COOLEY,
-	ALISON_KNIGHT,
-	WALTER_CUSSLER,
-	LUCY_PENNINGTON,
-	PEGGY_MYERS,
-	ANNA_CHESTERFIELD,
-	IRENE_MEADOWS,
-	MEG_COOLEY,
-	BRUCE_NORTON,
-	JOYCE_BALL,
-	LUDWIG_MEYER,
-	PHILIP_WENTWORTH,
-	PEARL_MOORE,
-	FIONA_HANCOCK,
-	DENNIS_KENNEDY,
-	RANDY_CAULFIELD,
-	RAY_HOFFMAN,
-	LILY_TURNER,
-	JEREMY_WILKINSON,
-	DORIS_LUBBIN
+enum CUSTOMERS
+{
+    JESSI_WATERS,
+    DONNA_MARTIN,
+    JACK_KNIGHT,
+    GERALDINE_POON,
+    KEITH_WAGNER,
+    KEVIN_OAKLEY,
+    BILLY_KRAMER,
+    MARCO_BARONE,
+    KATHY_HENDERSON,
+    BETH_PENN,
+    TOBIAS_WENTWORTH,
+    KIM_DELANEY,
+    LISA_GARDENER,
+    EUGENE_BUCKLEY,
+    KAREN_KENNEDY,
+    TRENT_SHERMAN,
+    JEN_HEARD,
+    MICHAEL_BOOG,
+    DEAN_WEBSTER,
+    ELIZABETH_HOMLEY,
+    HERBERT_BLEUBALL,
+    MICK_LUBBIN,
+    GENGHIS_BARN,
+    CHLOE_BOWERS,
+    MAC_COOPER,
+    SAM_THOMPSON,
+    JERRY_MONTERO,
+    GREG_FIGGLE,
+    JEFF_GILMORE,
+    GEORGE_GREENE,
+    JAVIER_PÉREZ,
+    CHRIS_SULLIVAN,
+    CARL_BUNDY,
+    SHERMAN_GILES,
+    PETER_FILE,
+    JENNIFER_RIVERA,
+    AUSTIN_STEINER,
+    HANK_STEVENSON,
+    LOUIS_FOURIER,
+    MRS_MING,
+    MELISSA_WOOD,
+    JACKIE_STEVENSON,
+    CHARLES_ROWLAND,
+    KELLY_REYNOLDS,
+    CRANKY_FRANK,
+    HAROLD_COLT,
+    KYLE_COOLEY,
+    ALISON_KNIGHT,
+    WALTER_CUSSLER,
+    LUCY_PENNINGTON,
+    PEGGY_MYERS,
+    ANNA_CHESTERFIELD,
+    IRENE_MEADOWS,
+    MEG_COOLEY,
+    BRUCE_NORTON,
+    JOYCE_BALL,
+    LUDWIG_MEYER,
+    PHILIP_WENTWORTH,
+    PEARL_MOORE,
+    FIONA_HANCOCK,
+    DENNIS_KENNEDY,
+    RANDY_CAULFIELD,
+    RAY_HOFFMAN,
+    LILY_TURNER,
+    JEREMY_WILKINSON,
+    DORIS_LUBBIN
 };
