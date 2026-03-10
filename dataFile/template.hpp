@@ -539,7 +539,7 @@ const std::string EFFECTNAMES[] = $EFFECT_NAMES$;
 
 constexpr uint16_t BASE_PRICES[] = $BASE_PRICES$;
 
-constexpr uint16_t BASE_COSTS[] = $BASE_COSTS$;
+// constexpr uint16_t BASE_COSTS[] = $BASE_COSTS$; //i reason that this can change wildly based on how you grow or make your product, plus i don't want to have to try to figure out what this would be for new bases, thus i'm commenting this out, prob gonna remove it, not going to use it for my next rewrite anyway 
 
 // the base effects that each base has
 constexpr EffectSet BASE_BASE_EFFECTS[] = $BASE_EFFECTS$;

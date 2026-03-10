@@ -539,7 +539,7 @@ const std::string EFFECTNAMES[] = {"Calming","Euphoric","Focused","Munchies","Pa
 
 constexpr uint16_t BASE_PRICES[] = {35,35,35,35,70,150,65};
 
-constexpr uint16_t BASE_COSTS[] = {375,438,500,562,1900,3383};
+// constexpr uint16_t BASE_COSTS[] = {375,438,500,562,1900,3383}; //i reason that this can change wildly based on how you grow or make your product, plus i don't want to have to try to figure out what this would be for new bases, thus i'm commenting this out, prob gonna remove it, not going to use it for my next rewrite anyway 
 
 // the base effects that each base has
 constexpr EffectSet BASE_BASE_EFFECTS[] = {EffectSet((uint64_t)1),EffectSet((uint64_t)32),EffectSet((uint64_t)512),EffectSet((uint64_t)2048),EffectSet((uint64_t)0),EffectSet((uint64_t)0),EffectSet((uint64_t)0)};
