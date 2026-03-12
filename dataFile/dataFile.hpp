@@ -584,8 +584,11 @@ namespace std
         size_t operator()(const EffectSet &p) const noexcept
         {
 
-            size_t h1 = std::hash<uint64_t>{}(p.effects.data);
-            return h1;
+            uint64_t x = p.effects.data;
+            x ^= x >> 33;
+            x *= 0xff51afd7ed558ccdULL;
+            x ^= x >> 33;
+            return static_cast<size_t>(x);
         }
     };
 }
