@@ -1,10 +1,12 @@
 
 #pragma once
 #include <iostream>
+#include <sstream>
 #include <vector>
 #include <string>
 #include <fmt/core.h>
 #include <cmath>
+#include <iomanip>
 #include <cstdint>
 #include <boost/container/small_vector.hpp>
 
@@ -23,6 +25,24 @@ using boost::container::small_vector;
 using fmt::format;
 using std::string;
 using std::vector;
+
+template <typename T>
+concept Numeric = std::is_arithmetic_v<T>;
+
+std::string commaFormat(Numeric auto inputNum,uint8_t decimalPlaces)
+{
+    std::ostringstream oss;
+    oss.imbue(std::locale(""));
+    oss << std::fixed << std::setprecision(decimalPlaces) << inputNum;
+    return oss.str();
+}
+
+std::string commaFormat(Numeric auto inputNum)
+{
+    return commaFormat(inputNum,4);
+}
+
+
 
 // these represent the modifier the effect adds as a fixed decimal point of 2, basically divide this number by 100 to get the real number
 //  this is smaller than a float and is generally faster
@@ -540,7 +560,7 @@ const std::string EFFECTNAMES[] = $EFFECT_NAMES$;
 constexpr uint16_t BASE_PRICES[] = $BASE_PRICES$;
 
 // DEPRECATED
-// constexpr uint16_t BASE_COSTS[] = $BASE_COSTS$; //i reason that this can change wildly based on how you grow or make your product, plus i don't want to have to try to figure out what this would be for new bases, thus i'm commenting this out, prob gonna remove it, not going to use it for my next rewrite anyway 
+// constexpr uint16_t BASE_COSTS[] = $BASE_COSTS$; //i reason that this can change wildly based on how you grow or make your product, plus i don't want to have to try to figure out what this would be for new bases, thus i'm commenting this out, prob gonna remove it, not going to use it for my next rewrite anyway
 
 // the base effects that each base has
 constexpr EffectSet BASE_BASE_EFFECTS[] = $BASE_EFFECTS$;
