@@ -102,7 +102,7 @@ template = template.replace(r"$EFFECT_ENUM$", EffectEnumStr)
 BasePrices = []
 # what does the base cost, this is done by taking the ingridents and dividing by how much you get, currently this is manually, make sure to follow the order in the BaseData.json file
 # uses float scaler
-BaseCosts = [375, 438, 500, 562, 1900, 3383]
+BaseCosts = [375, 438, 500, 562, 1900, 3383] # not used much anymore as it's too manual
 # the effects that bases like weed start with
 BaseBaseEffects = []
 BaseNames = []

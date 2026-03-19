@@ -153,6 +153,7 @@ struct EffectSet
         return effects.data == other.effects.data;
     }
 
+    // returns as fixed decimals with 1000 scaler
     constexpr uint16_t getAddiction()
     {
         uint16_t addiction = 0;
@@ -185,7 +186,7 @@ struct EffectSet
         {
             if (index >= EFFECT_AMT || parent->effects.data >> (index + 1) == 0)
             {
-                index = EFFECT_AMT;
+                index = 255;
                 return;
             }
             // std::cout << (int)index ;
@@ -211,7 +212,7 @@ struct EffectSet
     };
 
     Iterator begin() const { return Iterator(this, 0); }
-    Iterator end() const { return Iterator(this, EFFECT_AMT); }
+    Iterator end() const { return Iterator(this, 255); }
 
     constexpr void clear()
     {
@@ -264,6 +265,7 @@ struct EffectSet
         return effects.bitcount();
     }
 
+    // uses scaler of 100 for 2 fixed decimal places
     uint16_t totalModifier() const
     {
         uint16_t modifier = 100;
@@ -687,12 +689,12 @@ enum Items
     $ITEM_ENUM$
 };
 
-enum EFFECTS
+enum Effects
 {
     $EFFECT_ENUM$
 };
 
-enum CUSTOMERS
+enum Customers
 {
     $CUSTOMER_ENUM$
 };
